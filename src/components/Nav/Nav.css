@@ -1,0 +1,21 @@
+.nav-bar{
+    background-color: black;
+    margin: 0;
+}
+.nav-bar ul{
+    margin: 0;
+}
+.nav-bar ul li{
+    display: inline-block;
+    padding: 1rem;
+}
+.nav-bar ul li:hover{
+    background-color: teal;
+    transition: 0.3s all;
+}
+
+.app-title{
+  background-color: black;
+  color: white;
+  margin-top: 0;
+}

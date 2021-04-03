@@ -1,0 +1,13 @@
+.question{
+    border: 1px double;
+    padding: 1rem;
+    margin: 1rem auto;
+    width: 90%;
+    max-width: 550px;
+    background-color: ghostwhite;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

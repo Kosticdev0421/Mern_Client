@@ -1,0 +1,9 @@
+.home{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.home h1{
+    justify-self: center;
+    width: 100%;
+}
