@@ -1,25 +1,48 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
+import Answer from '../Answer/Answer';
+import './QuestionDetail.css';
 
 const QuestionDetail = () => {
     const {id} = useParams();
     const [question, setQuestion] = useState({});
+    const [answers, setAnswers] = useState([]);
     const [response, setResponse] = useState("");
     useEffect(() => {
         fetch(`http://localhost:5000/questions/${id}`)
         .then(res => res.json())
         .then(data => setQuestion(data));
     }, []);
+    
+    useEffect(() => {
+        fetch(`http://localhost:5000/answers?question=${id}`, {
+            headers: {
+                "x-access-token": localStorage.getItem("token")
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            setResponse(data.message);
+            if(data.success){
+                setAnswers(data.answers);
+            } 
+            
+        });
+    }, []);
 
     return (
         <div>
-            {
-                question && <div className="question">
+            {question && (
+                <div className="question-detail">
                     <p>{question.questionText}</p>
                     <p>On {question.questionLanguage}</p>
                     <WriteAnswerForm />
+                    {response && <p>{response}</p>}
+
+                    {answers && answers.map((answer) => <Answer answer={answer} />)}
+
                 </div>
-            }
+            )}
         </div>
     );
 
@@ -27,9 +50,7 @@ const QuestionDetail = () => {
         const [answerText, setAnswerText] = useState("");
         return (
             <form className="login-form" onSubmit={addAnswer}>
-                {
-                    response && <p>{response}</p>
-                }
+                
                 <textarea
                     cols="45"
                     rows="5"
@@ -38,7 +59,6 @@ const QuestionDetail = () => {
                     value={answerText}
                     onChange={(e) => {
                         setAnswerText(e.target.value);
-                        setResponse("");
                     }}
                 ></textarea>
                 
@@ -67,6 +87,7 @@ const QuestionDetail = () => {
                         setResponse(serverResponse.message);
                         if (serverResponse.success) {
                             setAnswerText("");
+                            window.location.reload();
                         }
                     });
             }

@@ -1,0 +1,17 @@
+.dashboard{
+    display: flex;
+}
+.sidebar{
+    background-color: teal;
+
+    width: 20%;
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+}
+.sidebar li{
+    padding: 1rem;
+}
+.sidebar li:hover{
+    background-color: #272727;
+}

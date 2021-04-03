@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import AskQuestion from './components/AskQuestion/AskQuestion';
 import CreateAccount from './components/CreateAccount/CreateAccount';
+import Dashboard from './components/Dashboard/Dashboard';
 import Home from './components/Home/Home';
 import LogIn from './components/LogIn/LogIn';
 import Nav from './components/Nav/Nav';
@@ -40,6 +41,10 @@ function App() {
                       </PrivateRoute>
                         <PrivateRoute path="/questions/:id">
                             <QuestionDetail />
+                        </PrivateRoute>
+                        
+                        <PrivateRoute path="/dashboard">
+                            <Dashboard />
                         </PrivateRoute>
                       <Route path="*">
                           <NotFound />

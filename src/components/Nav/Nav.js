@@ -52,7 +52,7 @@ const Nav = () => {
                 </Link>
                 {currentUser.email ? (
                     <span>
-                        <Link to="/" className="link-text">
+                        <Link to="/dashboard" className="link-text">
                             <li>{currentUser.userName.toUpperCase()}</li>
                         </Link>
                         <LogOut />
