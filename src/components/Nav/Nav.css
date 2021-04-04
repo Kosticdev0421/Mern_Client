@@ -13,7 +13,17 @@
     background-color: teal;
     transition: 0.3s all;
 }
-
+.nav-bar h1{
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #94a7b7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav-bar img{
+    max-width: 90px;
+}
 .app-title{
   background-color: black;
   color: white;

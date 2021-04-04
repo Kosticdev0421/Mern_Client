@@ -29,11 +29,13 @@ li{
 }
 .loading{
   position: absolute;
+  top: 0;
   height: 100vh;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.76);
   color: ghostwhite;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }

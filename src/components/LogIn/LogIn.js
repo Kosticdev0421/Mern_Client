@@ -1,7 +1,9 @@
 import React, { useContext, useState } from "react";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import { userAuthContext } from "../../App";
+import loadingImg from "../../images/Loading-Infinity.gif";
 import "./LogIn.css";
+
 
 const LogIn = () => {
     const [currentUser, setCurrentUser] = useContext(userAuthContext);
@@ -26,12 +28,13 @@ const LogIn = () => {
         let { from } = location.state || { from: { pathname: "/" } };
         return (
             <form onSubmit={handleLogIn} className="login-form">
-                {
-                    loading && <div className="loading"><h2>Processing your request...</h2></div>
-                }
-                {
-                    error && <p className="error-text">{error}</p>
-                }
+                {loading && (
+                    <div className="loading">
+                        <h1>Processing your request...</h1>
+                        <img src={loadingImg} alt="" />
+                    </div>
+                )}
+                {error && <p className="error-text">{error}</p>}
                 <input
                     type="email"
                     name="email"

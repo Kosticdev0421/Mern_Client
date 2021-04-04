@@ -1,15 +1,24 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
+import './AskQuestion.css';
 
 const AskQuestion = () => {
+    const [questionTitle, setQuestionTitle] = useState('');
     const [questionText, setQuestionText] = useState('');
     const [questionLanguage, setQuestionLanguage] = useState('');
     const history = useHistory();
     return (
         <div>
-            <h1>Ask here...</h1>
+            <small>জ্ঞান অর্জনে কোন কার্পণ্য নেই</small>
             <form className="login-form" onSubmit={handleQuestionQuery}>
+                <input
+                    placeholder="প্রশ্নটিকে এক লাইনে উপস্থাপন করুন"
+                    required
+                    value={questionTitle}
+                    onChange={(e) => setQuestionTitle(e.target.value)}
+                />
                 <textarea
+                    className="question-input"
                     cols="45"
                     rows="5"
                     placeholder="আপনার অসাধারণ প্রশ্নটি এখানে লিখুন"
@@ -30,8 +39,8 @@ const AskQuestion = () => {
 
     function handleQuestionQuery(e){
         e.preventDefault();
-        console.log(questionText);
         const question = {
+            questionTitle,
             questionText,
             questionLanguage,
             askedAt: new Date(),

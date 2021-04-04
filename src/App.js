@@ -5,11 +5,13 @@ import AskQuestion from './components/AskQuestion/AskQuestion';
 import CreateAccount from './components/CreateAccount/CreateAccount';
 import Dashboard from './components/Dashboard/Dashboard';
 import Home from './components/Home/Home';
+import LanguagesList from './components/LanguagesList/LanguagesList';
 import LogIn from './components/LogIn/LogIn';
 import Nav from './components/Nav/Nav';
 import NotFound from './components/NotFound/NotFound';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import QuestionDetail from './components/QuestionDetail/QuestionDetail';
+import QuestionsByLanguage from './components/QuestionsByLanguage/QuestionsByLanguage';
 
 export const userAuthContext = createContext();
 
@@ -35,6 +37,12 @@ function App() {
                       </Route>
                       <Route path="/createAccount">
                           <CreateAccount />
+                      </Route>
+                      <Route exact path="/languages">
+                          <LanguagesList />
+                      </Route>
+                      <Route path="/languages/:language">
+                          <QuestionsByLanguage />
                       </Route>
                       <PrivateRoute path="/ask">
                           <AskQuestion />

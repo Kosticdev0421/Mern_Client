@@ -1,3 +1,5 @@
+import { faComment, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import Answer from '../Answer/Answer';
@@ -8,12 +10,23 @@ const QuestionDetail = () => {
     const [question, setQuestion] = useState({});
     const [answers, setAnswers] = useState([]);
     const [response, setResponse] = useState("");
+    const [thumbsUpCount, setThumbsUpCount] = useState(0);
+        const [thumbsUp, setThumbsUp] = useState(false);
+
     useEffect(() => {
-        fetch(`http://localhost:5000/questions/${id}`)
-        .then(res => res.json())
-        .then(data => setQuestion(data));
-    }, []);
-    
+        fetch(`http://localhost:5000/questions/${id}`, {
+            headers: {
+                "x-access-token": localStorage.getItem("token"),
+            },
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                setQuestion(data);
+                setThumbsUpCount(data.thumbsUpCount);
+                setThumbsUp(data.thumbsUp);
+                
+            });
+        }, []);
     useEffect(() => {
         fetch(`http://localhost:5000/answers?question=${id}`, {
             headers: {
@@ -34,8 +47,10 @@ const QuestionDetail = () => {
         <div>
             {question && (
                 <div className="question-detail">
+                    <h3>{question.questionTitle || ""}</h3>
                     <p>{question.questionText}</p>
                     <p>On {question.questionLanguage}</p>
+                    <Reactions />
                     <WriteAnswerForm />
                     {response && <p>{response}</p>}
 
@@ -92,6 +107,48 @@ const QuestionDetail = () => {
                     });
             }
 
+    }
+
+    function Reactions() {
+        const reactionsStyle = {
+            display: "flex",
+            justifyContent: 'center'
+        };
+        const reactionStyle = {
+            display: "flex",
+            flexDirection: "column",
+            margin: "10px 5px 0",
+            cursor: "pointer",
+        };
+
+        return (
+            <div style={reactionsStyle}>
+                {/* <FontAwesomeIcon icon={faStar} /> */}
+                <span style={reactionStyle} onClick={handleReaction}>
+                    <FontAwesomeIcon icon={faThumbsUp} size="lg" color={thumbsUp ? "teal" : ""} />{" "}
+                    {thumbsUpCount}
+                </span>
+                <span style={reactionStyle}>
+                    <FontAwesomeIcon icon={faComment} size="lg" /> {question.answerCount}
+                </span>
+            </div>
+        );
+        function handleReaction(){
+            setThumbsUp(!thumbsUp);
+            const reactionInfo = {
+                thumbsUp: !thumbsUp,
+                questionId: question._id,
+            }
+            fetch('http://localhost:5000/updateReaction', {
+                method: "POST",
+                headers: {
+                    'x-access-token': localStorage.getItem('token'),
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(reactionInfo)
+            })
+            setThumbsUpCount(thumbsUp ? thumbsUpCount - 1 : thumbsUpCount + 1);
+        }
     }
 };
 

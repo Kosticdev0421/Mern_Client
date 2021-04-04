@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { userAuthContext } from "../../App";
+import logo from '../../images/coollogo_com-11330336.gif';
 import LogOut from "../LogOut/LogOut";
 import "./Nav.css";
 
@@ -37,7 +38,11 @@ const Nav = () => {
     return (
         <div className="nav-bar">
             <ul>
-                <h1 className="app-title">{"< প্রোগ্রামিং ব্যবচ্ছেদ />"}</h1>
+                <h1 className="app-title">
+                    {"< প্রোগ্রামিং"} &nbsp;
+                    <img src={logo} alt="" />
+                    {"/>"}
+                </h1>
                 <Link to="/" className="link-text">
                     <li>হোম</li>
                 </Link>
