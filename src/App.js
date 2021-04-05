@@ -24,30 +24,37 @@ function App() {
           <div className="App">
               <Router>
                 
-                  <Nav />
                   <Switch>
                       <Route exact path="/">
-                          <Home />
+                            <Nav />
+                            <Home />
                       </Route>
                       <Route exact path="/home">
+                            <Nav />
                           <Home />
                       </Route>
                       <Route path="/login">
+                            <Nav />
                           <LogIn />
                       </Route>
                       <Route path="/createAccount">
+                            <Nav />
                           <CreateAccount />
                       </Route>
                       <Route exact path="/languages">
+                            <Nav />
                           <LanguagesList />
                       </Route>
                       <Route path="/languages/:language">
+                            <Nav />
                           <QuestionsByLanguage />
                       </Route>
                       <PrivateRoute path="/ask">
+                            <Nav />
                           <AskQuestion />
                       </PrivateRoute>
                         <PrivateRoute path="/questions/:id">
+                            <Nav />
                             <QuestionDetail />
                         </PrivateRoute>
                         
@@ -55,6 +62,7 @@ function App() {
                             <Dashboard />
                         </PrivateRoute>
                       <Route path="*">
+                            <Nav />
                           <NotFound />
                       </Route>
                   </Switch>

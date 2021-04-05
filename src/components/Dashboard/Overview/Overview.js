@@ -4,8 +4,9 @@ import Charts from '../Charts/Charts';
 import './Overview.css';
 
     
-const Overview = () => {
+const Overview = ({userInfo}) => {
     const [currentUser, setCurrentUser] = useContext(userAuthContext);
+
     return (
         <div className="overview">
             <div className="top-container">
@@ -19,14 +20,14 @@ const Overview = () => {
                 </div>
                 <div className="overview-box">
                     <p>Questions</p>
-                    <h2>At least 0</h2>
+                    <h2>{userInfo?.questions?.length || "At least 0"}</h2>
                 </div>
                 <div className="overview-box">
                     <p>Answers</p>
-                    <h2>More than -1</h2>
+                    <h2>{userInfo?.answers?.length || "More than -1"}</h2>
                 </div>
             </div>
-                <Charts />
+            <Charts />
         </div>
     );
     

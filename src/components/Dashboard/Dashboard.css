@@ -5,13 +5,38 @@
     background-color: teal;
 
     width: 20%;
-    min-height: 85vh;
+    min-height: 100vh;
+    font-size: 1rem;
     display: flex;
     flex-direction: column;
 }
 .sidebar li{
-    padding: 1rem;
+    padding: 10px 5px 15px;
+    margin: 10px;
+    border-bottom: 5px double black;
+    border-radius: 50%;
+    transition: 0.5s all;
 }
 .sidebar li:hover{
     background-color: #272727;
+    border-radius: 0;
+}
+
+.gotoHome{
+    position: absolute;
+    right: 0%;
+    max-width: 100px;
+}
+
+@media (max-width: 768px) {
+    .dashboard{
+        flex-direction: column;
+        align-items: center;
+    }
+    .sidebar{
+        width: 100%;
+        min-height: 80px;
+        flex-direction: row;
+        justify-content: center;
+    }
 }
