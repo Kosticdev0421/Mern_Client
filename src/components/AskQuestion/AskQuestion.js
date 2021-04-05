@@ -6,6 +6,7 @@ const AskQuestion = () => {
     const [questionTitle, setQuestionTitle] = useState('');
     const [questionText, setQuestionText] = useState('');
     const [questionLanguage, setQuestionLanguage] = useState('');
+    const [code, setCode] = useState([]);
     const history = useHistory();
     return (
         <div>
@@ -25,6 +26,8 @@ const AskQuestion = () => {
                     required
                     value={questionText}
                     onChange={(e) => setQuestionText(e.target.value)}
+                    // onChange={handleCode}
+                    onKeyDown={handleKeyDown}
                 ></textarea>
                 <input
                     placeholder="প্রশ্নটি কোন প্রোগ্রামিং ভাষার?"
@@ -33,6 +36,23 @@ const AskQuestion = () => {
                     onChange={(e) => setQuestionLanguage(e.target.value)}
                 />
                 <button>প্রশ্ন করুন</button>
+
+
+
+                {/* <div className="formatted-code">
+                    {code &&
+                        code.map((word) => {
+                            const keywords = ["if", "for", "function"];
+                            if (
+                                keywords.indexOf(word.slice(0, -1)) != -1 ||
+                                keywords.indexOf(word) != -1
+                            ) {
+                                return <span className="highlighted">{word + " "}</span>;
+                            } else {
+                                return word + " ";
+                            }
+                        })}
+                </div> */}
             </form>
         </div>
     );
@@ -64,6 +84,39 @@ const AskQuestion = () => {
             }
         })    
     }
+
+
+    function handleCode(e){
+        let userCode = e.target.value.split(' ');
+        const c = /#include<stdio.h>/i;
+        if(c.test(userCode)){
+            setQuestionLanguage('C/C++');
+        }
+
+        const formattedCodeArray = userCode.map(word => {
+            return word;
+        })
+
+        const formattedCode = formattedCodeArray.join(' ');
+        console.log(formattedCode);
+        setCode(formattedCodeArray);
+        setQuestionText(e.target.value);
+    };
+    function handleKeyDown(e){
+        if(e.key === "{"){
+            setTimeout(() => {
+                setQuestionText(questionText+"{\n    \n}");
+                e.target.selectionStart = e.target.selectionEnd = e.target.value.length-2;
+            }, 0);
+        }
+        if(e.key === "("){
+            setTimeout(() => {
+                setQuestionText(questionText+"()");
+                e.target.selectionStart = e.target.selectionEnd = e.target.value.length-1;
+            }, 0);
+        }
+    }
+
 };
 
 export default AskQuestion;

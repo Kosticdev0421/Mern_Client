@@ -2,6 +2,7 @@ import { createContext, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import AskQuestion from './components/AskQuestion/AskQuestion';
+import CodeEditor from './components/CodeEditor/CodeEditor';
 import CreateAccount from './components/CreateAccount/CreateAccount';
 import Dashboard from './components/Dashboard/Dashboard';
 import Home from './components/Home/Home';
@@ -61,6 +62,10 @@ function App() {
                         <PrivateRoute path="/dashboard">
                             <Dashboard />
                         </PrivateRoute>
+                      <Route path="/editor">
+                            <Nav />
+                          <CodeEditor />
+                      </Route>
                       <Route path="*">
                             <Nav />
                           <NotFound />
