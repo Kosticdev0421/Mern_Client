@@ -22,11 +22,7 @@
     border-radius: 0;
 }
 
-.gotoHome{
-    position: absolute;
-    right: 0%;
-    max-width: 100px;
-}
+
 
 @media (max-width: 768px) {
     .dashboard{
