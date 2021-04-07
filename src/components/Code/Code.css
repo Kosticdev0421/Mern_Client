@@ -1,0 +1,12 @@
+.code-editor{
+    font-size: 1rem;
+    width: 90%;
+    text-align: left;
+    margin: 10px 0;
+}
+.code-editor > div > div{
+    box-shadow: 0 0 10px gray;
+    padding: 5px;
+    border-radius: 10px;
+    height: fit-content;
+}

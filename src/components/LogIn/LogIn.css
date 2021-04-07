@@ -16,4 +16,6 @@
     display: block;
     width: 80%;
     margin: 1rem;
+    border: 1px solid;
+    border-radius: 10px;
 }

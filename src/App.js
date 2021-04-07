@@ -2,7 +2,7 @@ import { createContext, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import AskQuestion from './components/AskQuestion/AskQuestion';
-import CodeEditor from './components/CodeEditor/CodeEditor';
+import Code from './components/Code/Code';
 import CreateAccount from './components/CreateAccount/CreateAccount';
 import Dashboard from './components/Dashboard/Dashboard';
 import Home from './components/Home/Home';
@@ -24,7 +24,6 @@ function App() {
       <userAuthContext.Provider value={[currentUser, setCurrentUser]}>
           <div className="App">
               <Router>
-                
                   <Switch>
                       <Route exact path="/">
                             <Nav />
@@ -64,7 +63,7 @@ function App() {
                         </PrivateRoute>
                       <Route path="/editor">
                             <Nav />
-                          <CodeEditor />
+                          <Code />
                       </Route>
                       <Route path="*">
                             <Nav />

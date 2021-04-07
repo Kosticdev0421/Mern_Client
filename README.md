@@ -1,11 +1,14 @@
 # Programming babocched
 
-## Features to be added:
-- refresh token
+## Features added
 - user dashboard
 - edit question/answer
 - code playground
-- shortcuts
+- code autocomplete
+
+
+## Features to be added:
+- refresh token
 - top question
 - ranking
 

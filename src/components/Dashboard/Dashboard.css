@@ -13,8 +13,7 @@
 .sidebar li{
     padding: 10px 5px 15px;
     margin: 10px;
-    border-bottom: 5px double black;
-    border-radius: 50%;
+    border-bottom: 2px solid black;
     transition: 0.5s all;
 }
 .sidebar li:hover{

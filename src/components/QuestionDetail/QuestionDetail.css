@@ -2,5 +2,15 @@
     width: 90%;
     max-width: 750px;
     margin: 1rem auto;
-
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+/* .question-info{
+    background: rgb(224,224,224);
+    background: radial-gradient(circle, rgba(224,224,224,1) 0%, rgba(255,255,255,1) 42%, rgba(255,255,255,1) 100%);
+} */
+.question-info h3{
+    box-shadow: 0 0 10px gray;
+    padding: 10px;
 }

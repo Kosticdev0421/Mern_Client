@@ -1,10 +1,12 @@
 .question{
-    border: 1px double;
+    /* border: 1px double; */
     padding: 1rem;
     margin: 1rem auto;
     width: 90%;
+    min-width: 30%;
     max-width: 550px;
     background-color: ghostwhite;
+    box-shadow: 0 0 10px gray;
     
     display: flex;
     flex-direction: column;

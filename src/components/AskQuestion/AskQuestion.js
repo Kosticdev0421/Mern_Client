@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
+import Code from '../Code/Code';
 import './AskQuestion.css';
 
 const AskQuestion = () => {
+    const [code, setCode] = useState("");
+    const [questionHeight, setQuestionHeight] = useState("100px");
     const [questionTitle, setQuestionTitle] = useState('');
     const [questionText, setQuestionText] = useState('');
     const [questionLanguage, setQuestionLanguage] = useState('');
-    const [code, setCode] = useState([]);
     const history = useHistory();
     return (
         <div>
@@ -20,15 +22,14 @@ const AskQuestion = () => {
                 />
                 <textarea
                     className="question-input"
-                    cols="45"
-                    rows="5"
+                    style={{height: questionHeight}}
                     placeholder="আপনার অসাধারণ প্রশ্নটি এখানে লিখুন"
                     required
                     value={questionText}
-                    onChange={(e) => setQuestionText(e.target.value)}
-                    // onChange={handleCode}
-                    onKeyDown={handleKeyDown}
+                    onChange={handleQuestionInput}
+                    // onKeyDown={handleKeyDown}
                 ></textarea>
+                <Code code={[code, setCode]} editable={true} />
                 <input
                     placeholder="প্রশ্নটি কোন প্রোগ্রামিং ভাষার?"
                     required
@@ -38,21 +39,7 @@ const AskQuestion = () => {
                 <button>প্রশ্ন করুন</button>
 
 
-
-                {/* <div className="formatted-code">
-                    {code &&
-                        code.map((word) => {
-                            const keywords = ["if", "for", "function"];
-                            if (
-                                keywords.indexOf(word.slice(0, -1)) != -1 ||
-                                keywords.indexOf(word) != -1
-                            ) {
-                                return <span className="highlighted">{word + " "}</span>;
-                            } else {
-                                return word + " ";
-                            }
-                        })}
-                </div> */}
+                
             </form>
         </div>
     );
@@ -62,6 +49,7 @@ const AskQuestion = () => {
         const question = {
             questionTitle,
             questionText,
+            code,
             questionLanguage,
             askedAt: new Date(),
         }
@@ -86,22 +74,14 @@ const AskQuestion = () => {
     }
 
 
-    function handleCode(e){
-        let userCode = e.target.value.split(' ');
-        const c = /#include<stdio.h>/i;
-        if(c.test(userCode)){
-            setQuestionLanguage('C/C++');
-        }
-
-        const formattedCodeArray = userCode.map(word => {
-            return word;
-        })
-
-        const formattedCode = formattedCodeArray.join(' ');
-        console.log(formattedCode);
-        setCode(formattedCodeArray);
+    function handleQuestionInput(e){
+        const height = Math.floor(e.target.scrollHeight/10)*10-20;//-20 for padding
+        setQuestionHeight(height+"px");
+        console.log(height);
         setQuestionText(e.target.value);
-    };
+    }
+
+
     function handleKeyDown(e){
         if(e.key === "{"){
             setTimeout(() => {
