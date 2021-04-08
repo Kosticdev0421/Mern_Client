@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
 import "../../AskQuestion/AskQuestion.css";
+import Code from "../../Code/Code";
 
 const EditQuestion = () => {
     const { id } = useParams();
@@ -8,6 +9,8 @@ const EditQuestion = () => {
     const [questionText, setQuestionText] = useState("");
     const [questionLanguage, setQuestionLanguage] = useState("");
     const history = useHistory();
+    const [code, setCode] = useState("");
+
 
     useEffect(() => {
         fetch(`http://localhost:5000/questions/${id}`, {
@@ -20,6 +23,7 @@ const EditQuestion = () => {
                 setQuestionTitle(question.questionTitle);
                 setQuestionText(question.questionText);
                 setQuestionLanguage(question.questionLanguage);
+                setCode(question.code);
             });
     }, []);
 
@@ -46,6 +50,7 @@ const EditQuestion = () => {
                     value={questionText}
                     onChange={(e) => setQuestionText(e.target.value)}
                 ></textarea>
+                <Code code={[code, setCode]} editable={true} />
                 <input
                     placeholder="প্রশ্নটি কোন প্রোগ্রামিং ভাষার?"
                     required
@@ -62,6 +67,7 @@ const EditQuestion = () => {
         const question = {
             questionTitle,
             questionText,
+            code,
             questionLanguage,
             updatedAt: new Date(),
         };

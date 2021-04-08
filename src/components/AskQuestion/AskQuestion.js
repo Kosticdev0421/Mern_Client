@@ -14,32 +14,35 @@ const AskQuestion = () => {
         <div>
             <small>জ্ঞান অর্জনে কোন কার্পণ্য নেই</small>
             <form className="login-form" onSubmit={handleQuestionQuery}>
+                <small>ধরুন আপনার বন্ধুকে প্রশ্নটি করছেন</small>
                 <input
+                    className="question-input"
                     placeholder="প্রশ্নটিকে এক লাইনে উপস্থাপন করুন"
                     required
                     value={questionTitle}
                     onChange={(e) => setQuestionTitle(e.target.value)}
                 />
+                <small>উত্তরদাতার প্রশ্নটি পুরোপুরি বোঝার জন্য যা যা দরকার তা দিন</small>
                 <textarea
                     className="question-input"
-                    style={{height: questionHeight}}
+                    style={{ height: questionHeight }}
                     placeholder="আপনার অসাধারণ প্রশ্নটি এখানে লিখুন"
                     required
                     value={questionText}
                     onChange={handleQuestionInput}
                     // onKeyDown={handleKeyDown}
                 ></textarea>
+                <small>কোন কোডিং এর প্রয়োজন আছে কি?</small>
                 <Code code={[code, setCode]} editable={true} />
+                <small>ট্যাগ যুক্ত করুন</small>
                 <input
+                    className="question-input"
                     placeholder="প্রশ্নটি কোন প্রোগ্রামিং ভাষার?"
                     required
                     value={questionLanguage}
                     onChange={(e) => setQuestionLanguage(e.target.value)}
                 />
                 <button>প্রশ্ন করুন</button>
-
-
-                
             </form>
         </div>
     );

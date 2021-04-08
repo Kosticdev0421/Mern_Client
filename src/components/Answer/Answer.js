@@ -28,6 +28,7 @@ const Answer = ({answer}) => {
             />
         </div>
     );
+
 };
 
 export default Answer;

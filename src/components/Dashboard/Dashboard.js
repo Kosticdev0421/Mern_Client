@@ -63,7 +63,7 @@ const Dashboard = () => {
                 <Route path="/dashboard/answers">
                     <UserAnswers userInfo={userInfo} />
                 </Route>
-                <Route path="/dashboard/edit/:id">
+                <Route exact path="/dashboard/edit/:id">
                     <EditQuestion />
                 </Route>
             </Switch>

@@ -11,6 +11,7 @@
     border-radius: 10px;
     padding: 10px 1rem;
     outline: none;
+    margin-top: 0!important;
 }
 .highlighted{
     color: red;
