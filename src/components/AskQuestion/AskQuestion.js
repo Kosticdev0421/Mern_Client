@@ -54,7 +54,7 @@ const AskQuestion = () => {
             questionText,
             code,
             questionLanguage,
-            askedAt: new Date(),
+            askedAt: new Date().getTime(),
         }
         fetch("http://localhost:5000/ask", {
             method: "POST",

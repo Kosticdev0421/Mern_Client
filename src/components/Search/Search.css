@@ -1,0 +1,42 @@
+.search{
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+    margin: 10px auto;
+}
+
+.search-form{
+    display: flex;
+    align-items: center;
+}
+.search-form input{
+    width: 80%;
+    height: 20px;
+}
+.search-form button{
+    margin: 0;
+    height: 40px;
+    width: 80px;
+
+}
+
+.search-result{
+    background-color: teal;
+    color: white;
+    width: 95%;
+    max-width: 420px;
+    position: absolute;
+
+}
+.search-result .link-text{
+    text-decoration: none;
+}
+.search-result li{
+    padding: 5px;
+    border-bottom: 1px solid lightgray;
+
+}
+.search-result li:hover {
+    background-color: #272727;
+
+}

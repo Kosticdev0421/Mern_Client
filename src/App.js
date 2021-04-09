@@ -13,6 +13,7 @@ import NotFound from './components/NotFound/NotFound';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import QuestionDetail from './components/QuestionDetail/QuestionDetail';
 import QuestionsByLanguage from './components/QuestionsByLanguage/QuestionsByLanguage';
+import TopQuestions from './components/TopQuestions/TopQuestions';
 
 export const userAuthContext = createContext();
 
@@ -49,16 +50,20 @@ function App() {
                             <Nav />
                           <QuestionsByLanguage />
                       </Route>
+                      <Route exact path="/questions/top">
+                        <Nav />
+                        <TopQuestions />
+                      </Route>
                       <PrivateRoute path="/ask">
                             <Nav />
                           <AskQuestion />
                       </PrivateRoute>
-                        <PrivateRoute path="/questions/:id">
-                            <Nav />
-                            <QuestionDetail />
-                        </PrivateRoute>
-                        
-                        <PrivateRoute path="/dashboard">
+                      <PrivateRoute path="/questions/:id">
+                          <Nav />
+                          <QuestionDetail />
+                      </PrivateRoute>
+                      
+                      <PrivateRoute path="/dashboard">
                             <Dashboard />
                         </PrivateRoute>
                       <Route path="/editor">

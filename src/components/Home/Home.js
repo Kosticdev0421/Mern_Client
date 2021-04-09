@@ -3,12 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from 'react';
 import loadingImg from '../../images/Loading-Infinity.gif';
 import Question from '../Question/Question';
+import Search from "../Search/Search";
 import './Home.css';
 
 const Home = () => {
     const [questions, setQuestions] = useState([]);
     const [loading, setLoading] = useState(true);
-
+    
     useEffect(() => {
         fetch('http://localhost:5000/questions')
         .then(res => res.json())
@@ -28,6 +29,7 @@ const Home = () => {
     }
     return (
         <div className="home">
+            <Search />
             <h3>
                 {"<Latest />"} 
                 <br/>
@@ -37,6 +39,7 @@ const Home = () => {
                 questions.map((question) => <Question question={question} key={question._id} />)}
         </div>
     );
+
 };
 
 

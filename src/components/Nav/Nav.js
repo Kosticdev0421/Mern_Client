@@ -45,7 +45,7 @@ const Nav = () => {
                 <Link to="/ask" className="link-text">
                     <li>প্রশ্ন জিজ্ঞেস করুন</li>
                 </Link>
-                <Link to="/top" className="link-text">
+                <Link to="/questions/top" className="link-text">
                     <li>সেরা প্রশ্ন</li>
                 </Link>
                 <Link to="/languages" className="link-text">
