@@ -1,18 +1,20 @@
 # Programming babocched
 
 ## Features added
-- user dashboard
-- edit question/answer
-- code playground
-- code autocomplete
-- update/delete answers
-- search
+- Ask questions
+- Write answers
+- Search questions
+- Top question
+- Code playground
+- Code autocomplete
+- User dashboard
+- Update/delete questions
+- Update/delete answers
 
 
 ## Features to be added:
 - refresh token
-- top question
 - ranking
 
 
-[Live view](#)
+[Live view](https://programmingb.netlify.app/)
