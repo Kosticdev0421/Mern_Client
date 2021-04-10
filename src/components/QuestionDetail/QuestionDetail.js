@@ -17,7 +17,7 @@ const QuestionDetail = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/questions/${id}`, {
+        fetch(`${process.env.REACT_APP_SERVER_URL}/questions/${id}`, {
             headers: {
                 "x-access-token": localStorage.getItem("token"),
             },
@@ -30,7 +30,7 @@ const QuestionDetail = () => {
             });
         }, []);
     useEffect(() => {
-        fetch(`http://localhost:5000/answers?question=${id}`, {
+        fetch(`${process.env.REACT_APP_SERVER_URL}/answers?question=${id}`, {
             headers: {
                 "x-access-token": localStorage.getItem("token")
             }
@@ -117,7 +117,7 @@ const QuestionDetail = () => {
                     code,
                     answeredAt: new Date(),
                 };
-                fetch("http://localhost:5000/writeAnswer", {
+                fetch(`${process.env.REACT_APP_SERVER_URL}/writeAnswer`, {
                     method: "POST",
                     headers: {
                         "content-type": "application/json",
@@ -167,7 +167,7 @@ const QuestionDetail = () => {
     //             thumbsUp: !thumbsUp,
     //             questionId: question._id,
     //         }
-    //         fetch('http://localhost:5000/updateReaction', {
+    //         fetch('${process.env.REACT_APP_SERVER_URL}/updateReaction', {
     //             method: "POST",
     //             headers: {
     //                 'x-access-token': localStorage.getItem('token'),

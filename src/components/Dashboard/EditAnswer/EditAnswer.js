@@ -33,7 +33,7 @@ const EditAnswer = ({answer}) => {
             code,
             updatedAt: new Date(),
         };
-        fetch(`http://localhost:5000/editAnswer/${id}`, {
+        fetch(`${process.env.REACT_APP_SERVER_URL}/editAnswer/${id}`, {
             method: "POST",
             headers: {
                 "content-type": "application/json",

@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
 import "../../AskQuestion/AskQuestion.css";
-import Code from "../../Code/Code";
-
+import Code from '../../Code/Code';
 const EditQuestion = () => {
     const { id } = useParams();
     const [questionTitle, setQuestionTitle] = useState("");
@@ -13,7 +12,7 @@ const EditQuestion = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/questions/${id}`, {
+        fetch(`${process.env.REACT_APP_SERVER_URL}/questions/${id}`, {
             headers: {
                 "x-access-token": localStorage.getItem("token"),
             },
@@ -71,7 +70,7 @@ const EditQuestion = () => {
             questionLanguage,
             updatedAt: new Date(),
         };
-        fetch(`http://localhost:5000/editQuestion/${id}`, {
+        fetch(`${process.env.REACT_APP_SERVER_URL}/editQuestion/${id}`, {
             method: "POST",
             headers: {
                 "content-type": "application/json",

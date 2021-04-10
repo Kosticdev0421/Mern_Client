@@ -31,7 +31,7 @@ const UserQuestions = ({userInfo}) => {
     function deleteQuestion(id){
         const confirm = window.confirm("সত্যিই মুছে(ডিলিট) ফেলতে চাচ্ছেন?\nএকবার মুছলে পুনরায় ফিরে পাওয়া যাবে না!");
         if(confirm){
-            fetch(`http://localhost:5000/question/${id}`, {
+            fetch(`${process.env.REACT_APP_SERVER_URL}/question/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'x-access-token': localStorage.getItem('token')

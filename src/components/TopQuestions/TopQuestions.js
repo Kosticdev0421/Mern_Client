@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import Question from '../Question/Question';
-
+import { useEffect, useState } from 'react';
+import Question from '../Question//Question';
 const TopQuestions = () => {
     const [topQuestions, setTopQuestions] = useState([]);
     const titles = ["Top Liked:", "Trending:"];
     useEffect(() => {
-        fetch(`http://localhost:5000/questions/top`)
+        fetch(`${process.env.REACT_APP_SERVER_URL}/questions/top`)
         .then(res => res.json())
         .then(data => {
             setTopQuestions(data);

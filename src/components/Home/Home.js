@@ -9,14 +9,14 @@ import './Home.css';
 const Home = () => {
     const [questions, setQuestions] = useState([]);
     const [loading, setLoading] = useState(true);
-    
+    console.log(process.env.REACT_APP_SERVER_URL);
     useEffect(() => {
-        fetch('http://localhost:5000/questions')
-        .then(res => res.json())
-        .then(data => {
-            setQuestions(data);
-            setLoading(false);
-        });
+        fetch(`${process.env.REACT_APP_SERVER_URL}/questions`)
+            .then((res) => res.json())
+            .then((data) => {
+                setQuestions(data);
+                setLoading(false);
+            });
     }, []);
 
     if (loading) {

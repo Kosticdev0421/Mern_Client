@@ -10,7 +10,7 @@ const Nav = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch("http://localhost:5000/getUser", {
+        fetch(`${process.env.REACT_APP_SERVER_URL}/getUser`, {
             headers: {
                 "content-type": "application/json",
                 "x-access-token": localStorage.getItem("token"),

@@ -56,7 +56,7 @@ const AskQuestion = () => {
             questionLanguage,
             askedAt: new Date().getTime(),
         }
-        fetch("http://localhost:5000/ask", {
+        fetch(`${process.env.REACT_APP_SERVER_URL}/ask`, {
             method: "POST",
             headers: {
                 "content-type": "application/json",

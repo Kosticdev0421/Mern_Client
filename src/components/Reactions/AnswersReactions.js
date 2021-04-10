@@ -33,7 +33,7 @@ const AnswersReactions = (props) => {
             thumbsUp: !thumbsUp,
             reactionsOf: of._id,
         };
-        fetch("http://localhost:5000/updateReaction", {
+        fetch(`${process.env.REACT_APP_SERVER_URL}/updateReaction`, {
             method: "POST",
             headers: {
                 "x-access-token": localStorage.getItem("token"),

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, Route, Switch } from "react-router-dom";
-import loadingImg from "../../images/Loading-Infinity.gif";
+import loadingImg from '../../images/Loading-Infinity.gif';
 import './Dashboard.css';
 import EditQuestion from './EditQuestion/EditQuestion';
 import Overview from './Overview/Overview';
@@ -12,7 +12,7 @@ const Dashboard = () => {
         const [userInfo, setUserInfo] = useState({});
         const [loading, setLoading] = useState(true);
         useEffect(() => {
-            fetch(`http://localhost:5000/userInfo`, {
+            fetch(`${process.env.REACT_APP_SERVER_URL}/userInfo`, {
                 headers: {
                     "x-access-token": localStorage.getItem("token"),
                 },

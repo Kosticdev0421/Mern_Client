@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import Question from '../Question/Question';
+import Question from "../Question//Question";
 
 const QuestionsByLanguage = () => {
     const {language} = useParams();
     const [questions, setQuestions] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/questionsByLanguage/${language}`)
+        fetch(`${process.env.REACT_APP_SERVER_URL}/questionsByLanguage/${language}`)
         .then(res => res.json())
         .then(data => {
             setQuestions(data);

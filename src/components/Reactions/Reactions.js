@@ -37,14 +37,14 @@ const Reactions = (props) => {
                 reactionsOf: of._id,
                 type: props.type,
             }
-            fetch('http://localhost:5000/updateReaction', {
+            fetch(`${process.env.REACT_APP_SERVER_URL}/updateReaction`, {
                 method: "POST",
                 headers: {
-                    'x-access-token': localStorage.getItem('token'),
-                    'content-type': 'application/json'
+                    "x-access-token": localStorage.getItem("token"),
+                    "content-type": "application/json",
                 },
-                body: JSON.stringify(reactionInfo)
-            })
+                body: JSON.stringify(reactionInfo),
+            });
             setThumbsUpCount(thumbsUp ? thumbsUpCount - 1 : thumbsUpCount + 1);
         }
 };

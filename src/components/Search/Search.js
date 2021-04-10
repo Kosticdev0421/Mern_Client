@@ -43,7 +43,7 @@ const Search = () => {
         const searchQuery = e.target.value;
         e.preventDefault();
         if (searchQuery.length > 0) {
-            fetch(`http://localhost:5000/search?query=${searchQuery}`, {
+            fetch(`${process.env.REACT_APP_SERVER_URL}/search?query=${searchQuery}`, {
                 headers: {
                     "x-access-token": localStorage.getItem("token"),
                 },

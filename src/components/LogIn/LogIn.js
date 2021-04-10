@@ -62,7 +62,7 @@ const LogIn = () => {
                 email,
                 password,
             };
-            fetch("http://localhost:5000/login", {
+            fetch(`${process.env.REACT_APP_SERVER_URL}/login`, {
                 method: "POST",
                 headers: {
                     "content-type": "application/json",

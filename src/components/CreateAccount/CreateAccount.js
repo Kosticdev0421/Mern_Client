@@ -69,7 +69,7 @@ const CreateAccount = () => {
                 password,
             };
             
-            fetch("http://localhost:5000/addUser", {
+            fetch(`${process.env.REACT_APP_SERVER_URL}/addUser`, {
                 method: "POST",
                 headers: {
                     "content-type": "application/json",
