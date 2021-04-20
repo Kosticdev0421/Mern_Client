@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link, useHistory, useLocation } from "react-router-dom";
-import { userAuthContext } from "../../App";
-import loadingImg from "../../images/Loading-Infinity.gif";
+import { userAuthContext } from "../../../App";
+import loadingImg from "../../../images/Loading-Infinity.gif";
 import "./LogIn.css";
 
 

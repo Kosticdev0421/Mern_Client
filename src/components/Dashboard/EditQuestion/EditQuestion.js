@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
 import "../../AskQuestion/AskQuestion.css";
-import Code from '../../Code/Code';
+import Code from '../../Common/Code/Code';
 const EditQuestion = () => {
     const { id } = useParams();
     const [questionTitle, setQuestionTitle] = useState("");

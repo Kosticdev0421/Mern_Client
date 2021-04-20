@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Code from "../../Code/Code";
+import Code from "../../Common/Code/Code";
 
 const EditAnswer = ({answer}) => {
     const [answerText, setAnswerText] = useState(answer.answerText);

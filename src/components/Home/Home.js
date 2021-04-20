@@ -1,42 +1,16 @@
-import { faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect, useState } from 'react';
-import loadingImg from '../../images/Loading-Infinity.gif';
-import Question from '../Question/Question';
+import React from 'react';
 import Search from "../Search/Search";
 import './Home.css';
+import TopQuestions from './TopQuestions/TopQuestions';
 
 const Home = () => {
-    const [questions, setQuestions] = useState([]);
-    const [loading, setLoading] = useState(true);
-    console.log(process.env.REACT_APP_SERVER_URL);
-    useEffect(() => {
-        fetch(`${process.env.REACT_APP_SERVER_URL}/questions`)
-            .then((res) => res.json())
-            .then((data) => {
-                setQuestions(data);
-                setLoading(false);
-            });
-    }, []);
+    
 
-    if (loading) {
-        return (
-            <div className="loading">
-                <h1>Processing your request...</h1>
-                <img src={loadingImg} alt=""/>
-            </div>
-        );
-    }
+    
     return (
         <div className="home">
             <Search />
-            <h3>
-                {"<Latest />"} 
-                <br/>
-                <FontAwesomeIcon icon={faQuestionCircle} />
-            </h3>
-            {questions &&
-                questions.map((question) => <Question question={question} key={question._id} />)}
+            <TopQuestions />
         </div>
     );
 

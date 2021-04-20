@@ -1,19 +1,19 @@
 import { createContext, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
+import AllQuestions from './components/AllQuestions/AllQuestions';
 import AskQuestion from './components/AskQuestion/AskQuestion';
-import Code from './components/Code/Code';
-import CreateAccount from './components/CreateAccount/CreateAccount';
+import Code from './components/Common/Code/Code';
+import Nav from './components/Common/Nav/Nav';
 import Dashboard from './components/Dashboard/Dashboard';
 import Home from './components/Home/Home';
 import LanguagesList from './components/LanguagesList/LanguagesList';
-import LogIn from './components/LogIn/LogIn';
-import Nav from './components/Nav/Nav';
 import NotFound from './components/NotFound/NotFound';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import QuestionDetail from './components/QuestionDetail/QuestionDetail';
 import QuestionsByLanguage from './components/QuestionsByLanguage/QuestionsByLanguage';
-import TopQuestions from './components/TopQuestions/TopQuestions';
+import LogIn from './components/UserAccount//LogIn/LogIn';
+import CreateAccount from './components/UserAccount/CreateAccount/CreateAccount';
 
 export const userAuthContext = createContext();
 
@@ -39,8 +39,8 @@ function App() {
                           <LogIn />
                       </Route>
                       <Route path="/createAccount">
-                            <Nav />
-                          <CreateAccount />
+                        <Nav />
+                        <CreateAccount />
                       </Route>
                       <Route exact path="/languages">
                             <Nav />
@@ -50,9 +50,9 @@ function App() {
                             <Nav />
                           <QuestionsByLanguage />
                       </Route>
-                      <Route exact path="/questions/top">
+                      <Route exact path="/questions/all">
                         <Nav />
-                        <TopQuestions />
+                        <AllQuestions />
                       </Route>
                       <PrivateRoute path="/ask">
                             <Nav />

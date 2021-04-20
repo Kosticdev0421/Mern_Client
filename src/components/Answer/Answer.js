@@ -1,8 +1,8 @@
 import { faClock, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
-import Code from '../Code/Code';
-import Reactions from '../Reactions/Reactions';
+import Code from '../Common/Code/Code';
+import Reactions from '../Common/Reactions/Reactions';
 import './Answer.css';
 
 const Answer = ({answer}) => {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
-import Code from '../Code/Code';
+import Code from '../Common/Code/Code';
 import './AskQuestion.css';
 
 const AskQuestion = () => {

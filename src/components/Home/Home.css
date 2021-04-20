@@ -1,9 +1,6 @@
 .home{
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
     justify-content: space-around;
-}
-.home h3{
-    justify-self: center;
-    width: 100%;
 }

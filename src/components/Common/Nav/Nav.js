@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { userAuthContext } from "../../App";
-import logo from '../../images/coollogo_com-11330336.gif';
-import LogOut from "../LogOut/LogOut";
+import { userAuthContext } from "../../../App";
+import logo from '../../../images/coollogo_com-11330336.gif';
+import LogOut from "../../UserAccount//LogOut/LogOut";
 import "./Nav.css";
 
 const Nav = () => {
@@ -45,8 +45,8 @@ const Nav = () => {
                 <Link to="/ask" className="link-text">
                     <li>প্রশ্ন জিজ্ঞেস করুন</li>
                 </Link>
-                <Link to="/questions/top" className="link-text">
-                    <li>সেরা প্রশ্ন</li>
+                <Link to="/questions/all" className="link-text">
+                    <li>সকল প্রশ্ন</li>
                 </Link>
                 <Link to="/languages" className="link-text">
                     <li>প্রোগ্রামিং ভাষাসমূহ</li>

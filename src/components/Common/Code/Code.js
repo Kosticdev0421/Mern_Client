@@ -53,7 +53,7 @@ const Code = (props) => {
                     fullScreen: false,
                     readOnly: props.editable ? false : true,
                     placeholder: `if(code) code here;`,
-                    styleActiveLine: true,
+                    styleActiveLine: props.editable ? true : false,
                     extraKeys: {
                         Tab: "autocomplete",
                         // F11: function (cm) {
