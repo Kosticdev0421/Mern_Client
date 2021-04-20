@@ -1,0 +1,12 @@
+.all-questions{
+    display: flex;
+    flex-wrap: wrap;
+}
+.question-info{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.question-info > *{
+    margin: 5px;
+}

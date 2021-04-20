@@ -1,0 +1,11 @@
+.filters{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.filters > *{
+    margin: 5px;
+}
+.filters select{
+    padding: 10px;
+}

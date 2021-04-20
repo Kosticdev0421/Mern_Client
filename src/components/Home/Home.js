@@ -1,11 +1,9 @@
 import React from 'react';
-import Search from "../Search/Search";
 import './Home.css';
+import Search from "./Search/Search";
 import TopQuestions from './TopQuestions/TopQuestions';
 
 const Home = () => {
-    
-
     
     return (
         <div className="home">
