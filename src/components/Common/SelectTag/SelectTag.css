@@ -1,0 +1,17 @@
+/* .select-tag{
+    width: 100%;
+    border: 2px solid black;
+    border-radius: 10px;
+    scrollbar-width: none;
+    text-align: center;
+    margin: 10px 0;
+} */
+.select-tag option{
+    font-size: 1rem;
+    margin: 2px auto;
+    padding: 5px;
+}
+.select-tag option:hover{
+    background-color: #272727;
+    color: white;
+}

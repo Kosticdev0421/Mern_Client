@@ -13,3 +13,15 @@
     align-items: center;
     justify-content: center;
 }
+
+.tag{
+    background-color: rgba(0, 128, 128, 0.8);
+    color: white;
+    margin: 5px;
+    padding: 5px 10px;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 12px;
+    cursor: pointer;
+    text-decoration: none;
+}

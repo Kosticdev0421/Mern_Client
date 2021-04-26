@@ -1,18 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './LanguagesList.css';
+import './TagsList.css';
 
-const LanguagesList = () => {
+const TagsList = () => {
     const languages = ["C", "C++", "Python", "Javascript", "MathLab", "Fortran"];
     return (
         <div className="languages-list">
-            <Link to="/languages/algorithms" className="language-name featured">
+            <Link to="/tags/algorithms" className="language-name featured">
                 <li>Algorithms</li>
             </Link>
             {
                 languages.map(language => {
                     return (
-                        <Link to={`/languages/${language}`} className="language-name">
+                        <Link to={`/tags/${language}`} className="language-name">
                             <li>{language}</li>
                         </Link>
                     );
@@ -23,4 +23,4 @@ const LanguagesList = () => {
     );
 };
 
-export default LanguagesList;
+export default TagsList;

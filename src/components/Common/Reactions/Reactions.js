@@ -9,7 +9,8 @@ const Reactions = (props) => {
     
            const reactionsStyle = {
             display: "flex",
-            justifyContent: 'center'
+            justifyContent: 'center',
+            textAlign: "center",
         };
         const reactionStyle = {
             display: "flex",

@@ -48,8 +48,8 @@ const Nav = () => {
                 <Link to="/questions/all" className="link-text">
                     <li>সকল প্রশ্ন</li>
                 </Link>
-                <Link to="/languages" className="link-text">
-                    <li>প্রোগ্রামিং ভাষাসমূহ</li>
+                <Link to="/tags" className="link-text">
+                    <li>বিষয়সমূহ</li>
                 </Link>
                 {currentUser.email ? (
                     <span>

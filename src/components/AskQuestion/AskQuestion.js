@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import Code from '../Common/Code/Code';
+import SelectTags from '../Common/SelectTag/SelectTags';
 import './AskQuestion.css';
 
 const AskQuestion = () => {
@@ -9,7 +10,9 @@ const AskQuestion = () => {
     const [questionTitle, setQuestionTitle] = useState('');
     const [questionText, setQuestionText] = useState('');
     const [questionLanguage, setQuestionLanguage] = useState('');
+    const [tags, setTags] = useState([]);
     const history = useHistory();
+    console.log(tags);
     return (
         <div>
             <small>জ্ঞান অর্জনে কোন কার্পণ্য নেই</small>
@@ -35,13 +38,14 @@ const AskQuestion = () => {
                 <small>কোন কোডিং এর প্রয়োজন আছে কি?</small>
                 <Code code={[code, setCode]} editable={true} />
                 <small>ট্যাগ যুক্ত করুন</small>
-                <input
+                <SelectTags states={[tags, setTags]} />
+                {/* <input
                     className="question-input"
                     placeholder="প্রশ্নটি কোন প্রোগ্রামিং ভাষার?"
                     required
                     value={questionLanguage}
                     onChange={(e) => setQuestionLanguage(e.target.value)}
-                />
+                /> */}
                 <button>প্রশ্ন করুন</button>
             </form>
         </div>
@@ -53,7 +57,8 @@ const AskQuestion = () => {
             questionTitle,
             questionText,
             code,
-            questionLanguage,
+            // questionLanguage,
+            tags: tags.map(tag => tag.id),
             askedAt: new Date().getTime(),
         }
         fetch(`${process.env.REACT_APP_SERVER_URL}/ask`, {
@@ -80,7 +85,6 @@ const AskQuestion = () => {
     function handleQuestionInput(e){
         const height = Math.floor(e.target.scrollHeight/10)*10-20;//-20 for padding
         setQuestionHeight(height+"px");
-        console.log(height);
         setQuestionText(e.target.value);
     }
 

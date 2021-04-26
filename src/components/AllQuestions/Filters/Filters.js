@@ -1,11 +1,11 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
+import SelectTag from '../../Common/SelectTag/SelectTag';
 import './Filters.css';
 
 const Filters = ({getQuestions}) => {
     const [questions, setQuestions] = getQuestions;
     const sortByRef = useRef();
-    const languageRef = useRef();
-    const languages = ["C", "C++", "Python", "Javascript", "MathLab", "Fortran"];
+    const [tag, setTag] = useState([]);
 
     return (
         <div className="filters">
@@ -14,13 +14,8 @@ const Filters = ({getQuestions}) => {
                 <option value="latest">Latest Questions</option>
                 <option value="like">Top Liked</option>
             </select>
-            <p>Language</p>
-            <select ref={languageRef}>
-                <option value="All">All</option>
-                {languages.map((language) => {
-                    return <option value={language}>{language}</option>;
-                })}
-            </select>
+            <p>Topic</p>
+            <SelectTag setTag={setTag} />
             <button className="submit-btn" onClick={handleFilter}>
                 Filter
             </button>
@@ -29,8 +24,7 @@ const Filters = ({getQuestions}) => {
 
     function handleFilter(){
         const sortBy = sortByRef.current.value;
-        const language = languageRef.current.value;
-        const url = `${process.env.REACT_APP_SERVER_URL}/questions?sortBy=${sortBy}&language=${language}`;
+        const url = `${process.env.REACT_APP_SERVER_URL}/questions?sortBy=${sortBy}&tag=${tag}`;
         console.log(url)
         fetch(url)
         .then((res) => res.json())

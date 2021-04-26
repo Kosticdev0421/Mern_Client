@@ -8,5 +8,6 @@
     box-shadow: 0 0 10px gray;
     padding: 5px;
     border-radius: 10px;
+    min-height: 55px;
     height: fit-content;
 }

@@ -7,11 +7,11 @@ import Code from './components/Common/Code/Code';
 import Nav from './components/Common/Nav/Nav';
 import Dashboard from './components/Dashboard/Dashboard';
 import Home from './components/Home/Home';
-import LanguagesList from './components/LanguagesList/LanguagesList';
 import NotFound from './components/NotFound/NotFound';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import QuestionDetail from './components/QuestionDetail/QuestionDetail';
-import QuestionsByLanguage from './components/QuestionsByLanguage/QuestionsByLanguage';
+import QuestionsByTag from './components/QuestionsByTag/QuestionsByTag';
+import TagsList from "./components/TagsList/TagsList";
 import LogIn from './components/UserAccount//LogIn/LogIn';
 import CreateAccount from './components/UserAccount/CreateAccount/CreateAccount';
 
@@ -22,63 +22,63 @@ function App() {
 
 
     return (
-      <userAuthContext.Provider value={[currentUser, setCurrentUser]}>
-          <div className="App">
-              <Router>
-                  <Switch>
-                      <Route exact path="/">
+        <userAuthContext.Provider value={[currentUser, setCurrentUser]}>
+            <div className="App">
+                <Router>
+                    <Switch>
+                        <Route exact path="/">
                             <Nav />
                             <Home />
-                      </Route>
-                      <Route exact path="/home">
+                        </Route>
+                        <Route exact path="/home">
                             <Nav />
-                          <Home />
-                      </Route>
-                      <Route path="/login">
+                            <Home />
+                        </Route>
+                        <Route path="/login">
                             <Nav />
-                          <LogIn />
-                      </Route>
-                      <Route path="/createAccount">
-                        <Nav />
-                        <CreateAccount />
-                      </Route>
-                      <Route exact path="/languages">
+                            <LogIn />
+                        </Route>
+                        <Route path="/createAccount">
                             <Nav />
-                          <LanguagesList />
-                      </Route>
-                      <Route path="/languages/:language">
+                            <CreateAccount />
+                        </Route>
+                        <Route exact path="/tags">
                             <Nav />
-                          <QuestionsByLanguage />
-                      </Route>
-                      <Route exact path="/questions/all">
-                        <Nav />
-                        <AllQuestions />
-                      </Route>
-                      <PrivateRoute path="/ask">
+                            <TagsList />
+                        </Route>
+                        <Route path="/tags/:tag">
                             <Nav />
-                          <AskQuestion />
-                      </PrivateRoute>
-                      <PrivateRoute path="/questions/:id">
-                          <Nav />
-                          <QuestionDetail />
-                      </PrivateRoute>
-                      
-                      <PrivateRoute path="/dashboard">
+                            <QuestionsByTag />
+                        </Route>
+                        <Route exact path="/questions/all">
+                            <Nav />
+                            <AllQuestions />
+                        </Route>
+                        <PrivateRoute path="/ask">
+                            <Nav />
+                            <AskQuestion />
+                        </PrivateRoute>
+                        <PrivateRoute path="/questions/:id">
+                            <Nav />
+                            <QuestionDetail />
+                        </PrivateRoute>
+
+                        <PrivateRoute path="/dashboard">
                             <Dashboard />
                         </PrivateRoute>
-                      <Route path="/editor">
+                        <Route path="/editor">
                             <Nav />
-                          <Code />
-                      </Route>
-                      <Route path="*">
+                            <Code />
+                        </Route>
+                        <Route path="*">
                             <Nav />
-                          <NotFound />
-                      </Route>
-                  </Switch>
-              </Router>
-          </div>
-      </userAuthContext.Provider>
-  );
+                            <NotFound />
+                        </Route>
+                    </Switch>
+                </Router>
+            </div>
+        </userAuthContext.Provider>
+    );
 }
 
 export default App;

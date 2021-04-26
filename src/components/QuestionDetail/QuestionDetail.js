@@ -40,8 +40,8 @@ const QuestionDetail = () => {
             setResponse(data.message);
             if(data.success){
                 setAnswers(data.answers);
-                setLoading(false);
-            } 
+            }
+            setLoading(false);
             
         });
     }, []);
@@ -62,7 +62,13 @@ const QuestionDetail = () => {
                     <div className="question-info">
                         <h3>{question.questionTitle || ""}</h3>
                         <p>{question.questionText}</p>
-                        <i>On {question.questionLanguage}</i>
+                        <i>
+                            On{" "}
+                            {question.questionLanguage ||
+                                question.tags?.map((tag) => (
+                                    <a className="tag" href={`/languages/${tag}`} alt="" >{tag}</a>
+                                ))}
+                        </i>
                         {question.code && <Code code={[question.code]} editable={false} />}
                     </div>
                     <Reactions
@@ -84,11 +90,7 @@ const QuestionDetail = () => {
 
     function WriteAnswerForm(){
         const [answerText, setAnswerText] = useState("");
-            const [code, setCode] = useState(
-                `if(you have any code){
-    print("write it here!");
-}`
-            );
+            const [code, setCode] = useState("");
         return (
             <form className="login-form" onSubmit={addAnswer} style={{margin: 0, maxWidth: "650px"}}>
                 
