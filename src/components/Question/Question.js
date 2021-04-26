@@ -1,4 +1,4 @@
-import { faClock, faCode, faComment, faThumbsUp, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faClock, faCode, faComment, faEye, faThumbsUp, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -50,6 +50,9 @@ const Question = ({ question }) => {
                 </span>
                 <span style={reactionStyle}>
                     <FontAwesomeIcon icon={faComment} /> {question.answerCount}
+                </span>
+                <span style={reactionStyle}>
+                    <FontAwesomeIcon icon={faEye} /> {question.viewCount}
                 </span>
             </div>
         );

@@ -1,4 +1,4 @@
-import { faComment, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
+import { faComment, faEye, faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 
@@ -28,6 +28,11 @@ const Reactions = (props) => {
                 <span style={reactionStyle}>
                     <FontAwesomeIcon icon={faComment} size="lg" /> {of.answerCount || 0}
                 </span>
+                {props.type === "questions" && (
+                    <span style={reactionStyle}>
+                        <FontAwesomeIcon icon={faEye} size="lg" /> {of.viewCount}
+                    </span>
+                )}
             </div>
         );
         function handleReaction(){
