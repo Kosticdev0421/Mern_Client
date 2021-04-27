@@ -1,19 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './TagsList.css';
 
 const TagsList = () => {
-    const languages = ["C", "C++", "Python", "Javascript", "MathLab", "Fortran"];
+    // const tagsList = ["C", "C++", "Python", "Javascript", "MathLab", "Fortran"];
+    const [tagsList, setTagsList] = useState([]);
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_SERVER_URL}/tags`)
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                setTagsList(data);
+            });
+    }, []);
     return (
         <div className="languages-list">
             <Link to="/tags/algorithms" className="language-name featured">
                 <li>Algorithms</li>
             </Link>
             {
-                languages.map(language => {
+                tagsList?.map(tag => {
                     return (
-                        <Link to={`/tags/${language}`} className="language-name">
-                            <li>{language}</li>
+                        <Link to={`/tags/${tag}`} className="language-name">
+                            <li>{tag}</li>
                         </Link>
                     );
                 })

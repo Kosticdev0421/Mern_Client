@@ -9,7 +9,7 @@ const AskQuestion = () => {
     const [questionHeight, setQuestionHeight] = useState("100px");
     const [questionTitle, setQuestionTitle] = useState('');
     const [questionText, setQuestionText] = useState('');
-    const [questionLanguage, setQuestionLanguage] = useState('');
+    // const [questionLanguage, setQuestionLanguage] = useState('');
     const [tags, setTags] = useState([]);
     const history = useHistory();
     console.log(tags);

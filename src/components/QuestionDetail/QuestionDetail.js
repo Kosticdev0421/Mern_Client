@@ -66,7 +66,7 @@ const QuestionDetail = () => {
                             On{" "}
                             {question.questionLanguage ||
                                 question.tags?.map((tag) => (
-                                    <a className="tag" href={`/languages/${tag}`} alt="" >{tag}</a>
+                                    <a className="tag" href={`/tags/${tag}`} alt="" >{tag}</a>
                                 ))}
                         </i>
                         {question.code && <Code code={[question.code]} editable={false} />}

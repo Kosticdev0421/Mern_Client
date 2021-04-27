@@ -23,7 +23,7 @@ const Question = ({ question }) => {
                 </p>
                 <p>
                     <FontAwesomeIcon color="cornflowerblue" icon={faCode} />{" "}
-                    {question.questionLanguage || (
+                    {
                         <i>
                             {question.questionLanguage ||
                                 question.tags?.map((tag) => (
@@ -32,7 +32,7 @@ const Question = ({ question }) => {
                                     </a>
                                 ))}
                         </i>
-                    )}
+                    }
                 </p>
                 
             </div>

@@ -10,9 +10,9 @@ const delimiters = [KeyCodes.comma, KeyCodes.enter];
 const SelectTags = (props) => {
     
     const [tags, setTags] = props.states;
-    const languages = ["C", "C++", "Python", "Javascript", "MathLab", "Fortran"];
+    const tagsList = ["C", "C++", "Python", "Javascript", "MathLab", "Fortran"];
 
-    const suggestions = languages.map((language) => {
+    const suggestions = tagsList.map((language) => {
         return {
             id: language,
             text: language,

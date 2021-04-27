@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
 import "../../AskQuestion/AskQuestion.css";
 import Code from '../../Common/Code/Code';
+import SelectTags from "../../Common/SelectTag/SelectTags";
 const EditQuestion = () => {
     const { id } = useParams();
     const [questionTitle, setQuestionTitle] = useState("");
     const [questionText, setQuestionText] = useState("");
     const [questionLanguage, setQuestionLanguage] = useState("");
+    const [tags, setTags] = useState([]);
     const history = useHistory();
     const [code, setCode] = useState("");
 
@@ -50,12 +52,13 @@ const EditQuestion = () => {
                     onChange={(e) => setQuestionText(e.target.value)}
                 ></textarea>
                 <Code code={[code, setCode]} editable={true} />
-                <input
+                <SelectTags states={[tags, setTags]} />
+                {/* <input
                     placeholder="প্রশ্নটি কোন প্রোগ্রামিং ভাষার?"
                     required
                     value={questionLanguage}
                     onChange={(e) => setQuestionLanguage(e.target.value)}
-                />
+                /> */}
                 <button>প্রশ্নটি আপডেট করুন</button>
             </form>
         </div>
@@ -67,7 +70,8 @@ const EditQuestion = () => {
             questionTitle,
             questionText,
             code,
-            questionLanguage,
+            tags: tags.map((tag) => tag.id),
+            // questionLanguage,
             updatedAt: new Date(),
         };
         fetch(`${process.env.REACT_APP_SERVER_URL}/editQuestion/${id}`, {
