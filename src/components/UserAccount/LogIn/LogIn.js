@@ -73,7 +73,9 @@ const LogIn = () => {
                 .then((data) => {
                     console.log(data);
                     if (data.success) {
+                        console.log(data);
                         localStorage.setItem("token", data.token);
+                        localStorage.setItem('refreshToken', data.refreshToken);
                         setCurrentUser(data.user);
                         history.replace(from);
                     } else {

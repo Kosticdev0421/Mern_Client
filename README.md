@@ -10,10 +10,10 @@
 - User dashboard
 - Update/delete questions
 - Update/delete answers
+- refresh token
 
 
 ## Features to be added:
-- refresh token
 - ranking
 
 

@@ -21,6 +21,24 @@ const PrivateRoute = ({ children, ...rest }) => {
                 if (result.auth) {
                     setCurrentUser(result.user);
                     setLoading(false);
+                } else if(result.tokenExpired) {
+                    fetch(`${process.env.REACT_APP_SERVER_URL}/refreshToken`, {
+                        headers: {
+                            "content-type": "application/json",
+                            "x-refresh-token": localStorage.getItem('refreshToken')
+                        }
+                    }).then(res => res.json())
+                    .then(res => {
+                        console.log("expired!!", res);
+
+                        if(res.auth){
+                            localStorage.setItem('token', res.token);
+                            setCurrentUser(res.user);
+                            setLoading(false);
+                        } else {
+                            setLoading(false);
+                        }
+                    })
                 } else {
                     setLoading(false);
                 }
