@@ -29,8 +29,8 @@ const UserAnswers = ({ userInfo }) => {
 
         return (
             <div>
-                <button onClick={() => setShowEdit(!showEdit)}>কিছু পরিবর্তন করুন</button>
-                <button onClick={() => deleteAnswer(answer._id)}>মুছে ফেলুন</button>
+                <button className="btn-brand" onClick={() => setShowEdit(!showEdit)}>কিছু পরিবর্তন করুন</button>
+                <button className="btn-brand" onClick={() => deleteAnswer(answer._id)}>মুছে ফেলুন</button>
                 {showEdit && <EditAnswer answer={answer} />}
             </div>
         );

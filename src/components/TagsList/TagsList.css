@@ -13,12 +13,12 @@
     margin: 1rem;
     padding: 1rem;
     font-size: 1.5rem;
-    background-color: teal;
+    background-color: #404083;
     color: wheat;
     transition: 0.5s all;
 }
 .language-name:hover{
-    background-color: lightseagreen;
+    background-color: teal;
     font-size: 2rem;
 }
 .featured{

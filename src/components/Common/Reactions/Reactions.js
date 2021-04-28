@@ -23,7 +23,11 @@ const Reactions = (props) => {
             <div style={reactionsStyle}>
                 {/* <FontAwesomeIcon icon={faStar} /> */}
                 <span style={reactionStyle} onClick={handleReaction}>
-                    <FontAwesomeIcon icon={faThumbsUp} size="lg" color={thumbsUp ? "teal" : ""} />{" "}
+                    <FontAwesomeIcon
+                        icon={faThumbsUp}
+                        size="lg"
+                        color={thumbsUp ? "#404083" : ""}
+                    />{" "}
                     {thumbsUpCount}
                 </span>
                 <span style={reactionStyle}>

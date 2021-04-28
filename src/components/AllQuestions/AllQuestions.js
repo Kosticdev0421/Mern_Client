@@ -18,14 +18,14 @@ const AllQuestions = () => {
     if (loading) {
         return (
             <div className="loading">
-                <h1>Processing your request...</h1>
+                
                 <img src={loadingImg} alt="" />
             </div>
         );
     }
 
     return (
-        <div>
+        <div className="all-questions-container">
             <Filters getQuestions={[questions, setQuestions]} />
             <small>Number of questions loaded: {questions.length}</small>
             <div className="all-questions">

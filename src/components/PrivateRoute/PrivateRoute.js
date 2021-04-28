@@ -47,7 +47,7 @@ const PrivateRoute = ({ children, ...rest }) => {
       if (loading) {
           return (
               <div className="loading">
-                  <h1>Processing your request...</h1>
+                  
               </div>
           );
       }    

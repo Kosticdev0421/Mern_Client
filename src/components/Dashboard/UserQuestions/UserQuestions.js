@@ -19,9 +19,9 @@ const UserQuestions = ({userInfo}) => {
                             <Question question={question} key={question._id} />
                             <div>
                                 <Link to={`/dashboard/edit/${question._id}`}>
-                                    <button>কিছু পরিবর্তন করুন</button>
+                                    <button className="btn-brand">কিছু পরিবর্তন করুন</button>
                                 </Link>
-                                <button onClick={() => deleteQuestion(question._id)}>মুছে ফেলুন</button>
+                                <button className="btn-brand" onClick={() => deleteQuestion(question._id)}>মুছে ফেলুন</button>
                             </div>
                         </div>
                     );

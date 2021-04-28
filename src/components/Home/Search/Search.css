@@ -3,6 +3,7 @@
     width: 90%;
     max-width: 500px;
     margin: 10px auto;
+    z-index: 1;
 }
 
 .search-form{
@@ -21,7 +22,7 @@
 }
 
 .search-result{
-    background-color: teal;
+    background-color: #404083;
     color: white;
     width: 95%;
     max-width: 420px;

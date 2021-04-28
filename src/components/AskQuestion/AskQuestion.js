@@ -15,7 +15,7 @@ const AskQuestion = () => {
     console.log(tags);
     return (
         <div>
-            <small>জ্ঞান অর্জনে কোন কার্পণ্য নেই</small>
+            <small className="text-brand">জ্ঞান অর্জনে কোন কার্পণ্য নেই</small>
             <form className="login-form" onSubmit={handleQuestionQuery}>
                 <small>ধরুন আপনার বন্ধুকে প্রশ্নটি করছেন</small>
                 <input
@@ -46,7 +46,7 @@ const AskQuestion = () => {
                     value={questionLanguage}
                     onChange={(e) => setQuestionLanguage(e.target.value)}
                 /> */}
-                <button>প্রশ্ন করুন</button>
+                <button className="btn-brand">প্রশ্ন করুন</button>
             </form>
         </div>
     );

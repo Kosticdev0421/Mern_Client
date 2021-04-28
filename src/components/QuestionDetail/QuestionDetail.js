@@ -49,7 +49,7 @@ const QuestionDetail = () => {
     if (loading) {
         return (
             <div className="loading">
-                <h1>Processing your request...</h1>
+                
                 <img src={loadingImg} alt="" />
             </div>
         );
@@ -106,7 +106,7 @@ const QuestionDetail = () => {
                 ></textarea>
                 <Code code={[code, setCode]} editable={true}/>
                 
-                <button>উত্তরটি যোগ করুন</button>
+                <button className="btn-brand">উত্তরটি যোগ করুন</button>
             </form>
         );
 

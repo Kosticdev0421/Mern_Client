@@ -10,7 +10,7 @@
     padding: 1rem;
 }
 .nav-bar ul li:hover{
-    background-color: teal;
+    background-color: #404083;
     transition: 0.3s all;
 }
 .nav-bar h1{

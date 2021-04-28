@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import loadingImg from "../../../images/Loading-Infinity.gif";
 import Question from '../../Question/Question';
+import './TopQuestions.css';
 
 const TopQuestions = () => {
     const [topQuestions, setTopQuestions] = useState([]);
@@ -18,14 +19,14 @@ const TopQuestions = () => {
     if (loading) {
         return (
             <div className="loading">
-                <h1>Processing your request...</h1>
+                
                 <img src={loadingImg} alt="" />
             </div>
         );
     }
 
     return (
-        <div>
+        <div className="top-questions">
             {topQuestions && topQuestions.map((question, i) => {
                 return (
                     <div>

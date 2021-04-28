@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link, Route, Switch } from "react-router-dom";
 import loadingImg from '../../images/Loading-Infinity.gif';
+import LogOut from '../UserAccount/LogOut/LogOut';
+import AddReview from './AddReview/AddReview';
 import './Dashboard.css';
 import EditQuestion from './EditQuestion/EditQuestion';
 import Overview from './Overview/Overview';
@@ -27,7 +29,7 @@ const Dashboard = () => {
     if(loading){
         return (
             <div className="loading">
-                <h1>Processing your request...</h1>
+                
                 <img src={loadingImg} alt="" />
             </div>
         );
@@ -49,6 +51,12 @@ const Dashboard = () => {
                 <Link to="/dashboard/answers" className="link-text">
                     <li>Answers</li>
                 </Link>
+                <Link to="/dashboard/addReview" className="link-text">
+                    <li>Write A Review</li>
+                </Link>
+                <span style={{margin: "auto 0"}}>
+                    <LogOut />
+                </span>
             </nav>
             <Switch>
                 <Route exact path="/dashboard/">
@@ -65,6 +73,9 @@ const Dashboard = () => {
                 </Route>
                 <Route exact path="/dashboard/edit/:id">
                     <EditQuestion />
+                </Route>
+                <Route exact path="/dashboard/addReview">
+                    <AddReview />
                 </Route>
             </Switch>
         </div>

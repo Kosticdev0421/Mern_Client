@@ -22,7 +22,7 @@ const Search = () => {
                     placeholder="আপনার অসাধারণ প্রশ্নটি খুঁজুন"
                     onChange={handleSearch}
                 />
-                <button>
+                <button className="btn-brand">
                     <FontAwesomeIcon icon={faSearch} />
                 </button>
             </form>

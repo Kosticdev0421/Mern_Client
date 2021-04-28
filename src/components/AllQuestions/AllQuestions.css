@@ -1,3 +1,6 @@
+.all-questions-container{
+    background-color: lavender;
+}
 .all-questions{
     display: flex;
     flex-wrap: wrap;

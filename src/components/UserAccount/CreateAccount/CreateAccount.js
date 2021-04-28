@@ -56,7 +56,7 @@ const CreateAccount = () => {
                         )}
                         onInput={e => e.target.setCustomValidity("")}
                 />
-                <button>Create</button>
+                <button className="btn-brand">Create</button>
             </form>
         );
 

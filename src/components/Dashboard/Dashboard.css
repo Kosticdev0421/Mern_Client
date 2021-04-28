@@ -2,12 +2,13 @@
     display: flex;
 }
 .sidebar{
-    background-color: teal;
+    background-color: #272727;
 
     width: 20%;
     min-height: 100vh;
     font-size: 1rem;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
 }
 .sidebar li{
@@ -17,7 +18,7 @@
     transition: 0.5s all;
 }
 .sidebar li:hover{
-    background-color: #272727;
+    background-color: #404083;
     border-radius: 0;
 }
 

@@ -8,13 +8,14 @@ const Question = ({ question }) => {
     const askedToday = new Date(question.askedAt).getTime() > new Date().getTime() - 86400000;
     return (
         <div className="question">
-            <h3>{question.questionTitle || question.questionText}</h3>
+            <h3 className="highlighted-text">{question.questionTitle || question.questionText}</h3>
             <div className="question-info">
                 <p>
-                    <FontAwesomeIcon color="cornflowerblue" icon={faUser} /> {question.askedBy.userName || "Unknown"}
+                    <FontAwesomeIcon color="#404083" icon={faUser} />{" "}
+                    {question.askedBy.userName || "Unknown"}
                 </p>
                 <p>
-                    <FontAwesomeIcon color="cornflowerblue" icon={faClock} />{" "}
+                    <FontAwesomeIcon color="#404083" icon={faClock} />{" "}
                     {question.askedAt
                         ? askedToday
                             ? "Today"
@@ -22,7 +23,7 @@ const Question = ({ question }) => {
                         : "Unknown"}
                 </p>
                 <p>
-                    <FontAwesomeIcon color="cornflowerblue" icon={faCode} />{" "}
+                    <FontAwesomeIcon color="#404083" icon={faCode} />{" "}
                     {
                         <i>
                             {question.questionLanguage ||
@@ -34,11 +35,10 @@ const Question = ({ question }) => {
                         </i>
                     }
                 </p>
-                
             </div>
             <Reactions />
             <Link to={`/questions/${question._id}`}>
-                <button>See answers</button>
+                <button className="btn-brand">See answers</button>
             </Link>
         </div>
     );
@@ -55,15 +55,15 @@ const Question = ({ question }) => {
 
         return (
             <div style={reactionsStyle}>
-                {/* <FontAwesomeIcon color="cornflowerblue" icon={faStar} /> */}
+                {/* <FontAwesomeIcon color="#404083" icon={faStar} /> */}
                 <span style={reactionStyle}>
-                    <FontAwesomeIcon color="cornflowerblue" icon={faThumbsUp} /> {question.thumbsUpCount}
+                    <FontAwesomeIcon color="#404083" icon={faThumbsUp} /> {question.thumbsUpCount}
                 </span>
                 <span style={reactionStyle}>
-                    <FontAwesomeIcon color="cornflowerblue" icon={faComment} /> {question.answerCount}
+                    <FontAwesomeIcon color="#404083" icon={faComment} /> {question.answerCount}
                 </span>
                 <span style={reactionStyle}>
-                    <FontAwesomeIcon color="cornflowerblue" icon={faEye} /> {question.viewCount}
+                    <FontAwesomeIcon color="#404083" icon={faEye} /> {question.viewCount}
                 </span>
             </div>
         );

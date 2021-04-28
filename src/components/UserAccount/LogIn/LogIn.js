@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
+import Particles from 'react-particles-js';
 import { Link, useHistory, useLocation } from "react-router-dom";
 import { userAuthContext } from "../../../App";
+import particlesConfig from "../../../config/particlesConfig";
 import loadingImg from "../../../images/Loading-Infinity.gif";
 import "./LogIn.css";
-
 
 const LogIn = () => {
     const [currentUser, setCurrentUser] = useContext(userAuthContext);
@@ -12,6 +13,9 @@ const LogIn = () => {
 
     return (
         <div>
+            <div style={{ position: "absolute", zIndex: -1 }}>
+                <Particles height="80vh" width="100vw" params={particlesConfig} />
+            </div>
             <h1>ঝাঁপিয়ে পরুন এখনই</h1>
             <LogInForm />
             <small>
@@ -30,7 +34,7 @@ const LogIn = () => {
             <form onSubmit={handleLogIn} className="login-form">
                 {loading && (
                     <div className="loading">
-                        <h1>Processing your request...</h1>
+                        
                         <img src={loadingImg} alt="" />
                     </div>
                 )}
@@ -51,7 +55,7 @@ const LogIn = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <button>Log in</button>
+                <button className="btn-brand">Log in</button>
             </form>
         );
 

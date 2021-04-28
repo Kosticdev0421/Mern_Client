@@ -59,7 +59,7 @@ const EditQuestion = () => {
                     value={questionLanguage}
                     onChange={(e) => setQuestionLanguage(e.target.value)}
                 /> */}
-                <button>প্রশ্নটি আপডেট করুন</button>
+                <button className="btn-brand">প্রশ্নটি আপডেট করুন</button>
             </form>
         </div>
     );

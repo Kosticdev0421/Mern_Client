@@ -16,7 +16,7 @@ const Filters = ({getQuestions}) => {
             </select>
             <p>Topic</p>
             <SelectTag setTag={setTag} />
-            <button className="submit-btn" onClick={handleFilter}>
+            <button className="btn-brand" onClick={handleFilter}>
                 Filter
             </button>
         </div>

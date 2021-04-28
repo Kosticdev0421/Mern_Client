@@ -19,7 +19,7 @@ const EditAnswer = ({answer}) => {
             ></textarea>
             <Code code={[code, setCode]} editable={true} />
 
-            <button>উত্তরটি যোগ করুন</button>
+            <button className="btn-brand">উত্তরটি যোগ করুন</button>
         </form>
     );
 
