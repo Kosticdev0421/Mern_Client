@@ -17,7 +17,7 @@ const PrivateRoute = ({ children, ...rest }) => {
         })
             .then((res) => res.json())
             .then((result) => {
-                console.log(result);
+                // console.log(result);
                 if (result.auth) {
                     setCurrentUser(result.user);
                     setLoading(false);
@@ -29,7 +29,7 @@ const PrivateRoute = ({ children, ...rest }) => {
                         }
                     }).then(res => res.json())
                     .then(res => {
-                        console.log("expired!!", res);
+                        // console.log("expired!!", res);
 
                         if(res.auth){
                             localStorage.setItem('token', res.token);

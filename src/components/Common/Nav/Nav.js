@@ -28,7 +28,7 @@ const Nav = () => {
             });
     }, []);
     if (loading) {
-        return <div></div>;
+        return <span></span>;
     }
 
     return (

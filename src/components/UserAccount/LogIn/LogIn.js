@@ -75,9 +75,9 @@ const LogIn = () => {
             })
                 .then((res) => res.json())
                 .then((data) => {
-                    console.log(data);
+                    // console.log(data);
                     if (data.success) {
-                        console.log(data);
+                        // console.log(data);
                         localStorage.setItem("token", data.token);
                         localStorage.setItem('refreshToken', data.refreshToken);
                         setCurrentUser(data.user);

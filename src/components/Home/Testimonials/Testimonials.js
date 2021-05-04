@@ -1,16 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import loadingImg from "../../../images/Loading-Infinity.gif";
 import './Testimonials.css';
 
 const Testimonials = () => {
     const [testimonials, setTestimonials] = useState([]);
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
         fetch(`${process.env.REACT_APP_SERVER_URL}/reviews`)
             .then((res) => res.json())
-            .then((data) => setTestimonials(data));
+            .then((data) => {
+                setTestimonials(data);
+                setLoading(false);
+            });
     }, []);
-    console.log(testimonials);
+    // console.log(testimonials);
+    if(loading){
+        return (
+            <div>
+                <img src={loadingImg} alt="" />
+            </div>
+        );
+    }
     return (
         <section className="my-5 py-5" id="reviews">
             <h1 className="text-brand text-center mb-5">What Our Students Say</h1>
