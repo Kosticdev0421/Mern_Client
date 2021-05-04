@@ -1,4 +1,6 @@
 # Programming babocched
+A website for asking and answering programming related questions and
+problems.
 
 ## Features added
 - Ask questions
@@ -11,7 +13,12 @@
 - Update/delete questions
 - Update/delete answers
 - refresh token
-
+- 
+## Tools
+- REACT
+- EXPRESSJS
+- MONGODB
+- JWT Token
 
 ## Features to be added:
 - ranking
