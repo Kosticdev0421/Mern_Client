@@ -19,17 +19,18 @@ const Nav = () => {
             .then((res) => res.json())
             .then((result) => {
                 if (result.auth) {
-                    console.log(result.user)
+                    // console.log(result.user)
                     setCurrentUser(result.user);
-                    setLoading(false);
-                } else {
-                    setLoading(false);
+                    // setLoading(false);
                 }
+                console.log(result)
+                setLoading(false);
             });
     }, []);
-    if (loading) {
-        return <span></span>;
-    }
+
+    // if (loading) {
+    //     return <span></span>;
+    // }
 
     return (
         <div className="nav-bar">

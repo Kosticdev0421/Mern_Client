@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
+import loadingImg from "../../images/Loading-Infinity.gif";
 import Code from '../Common/Code/Code';
 import SelectTags from '../Common/SelectTag/SelectTags';
 import './AskQuestion.css';
@@ -12,7 +13,10 @@ const AskQuestion = () => {
     // const [questionLanguage, setQuestionLanguage] = useState('');
     const [tags, setTags] = useState([]);
     const history = useHistory();
-    console.log(tags);
+    const [loading, setLoading] = useState(false);
+
+    if(loading) return <div className="loading"><img src={loadingImg} alt=""/></div>
+
     return (
         <div>
             <small className="text-brand">জ্ঞান অর্জনে কোন কার্পণ্য নেই</small>
@@ -53,6 +57,7 @@ const AskQuestion = () => {
 
     function handleQuestionQuery(e){
         e.preventDefault();
+        setLoading(true);
         const question = {
             questionTitle,
             questionText,
@@ -71,7 +76,8 @@ const AskQuestion = () => {
         })
         .then(res => res.json())
         .then(data => {
-            if(data){
+            setLoading(false);
+            if(data.success){
                 setQuestionText("");
                 history.push('/');
             }

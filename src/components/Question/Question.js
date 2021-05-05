@@ -26,12 +26,11 @@ const Question = ({ question }) => {
                     <FontAwesomeIcon color="#404083" icon={faCode} />{" "}
                     {
                         <i>
-                            {question.questionLanguage ||
-                                question.tags?.map((tag) => (
+                            {question.tags?.map((tag) => (
                                     <a className="tag" href={`/languages/${tag}`} alt="">
                                         {tag}
                                     </a>
-                                ))}
+                                )) || question.questionLanguage}
                         </i>
                     }
                 </p>
