@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { userAuthContext } from "../../../App";
 import logo from '../../../images/coollogo_com-11330336.gif';
@@ -7,7 +7,6 @@ import "./Nav.css";
 
 const Nav = () => {
     const [currentUser, setCurrentUser] = useContext(userAuthContext);
-    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetch(`${process.env.REACT_APP_SERVER_URL}/getUser`, {
@@ -19,18 +18,10 @@ const Nav = () => {
             .then((res) => res.json())
             .then((result) => {
                 if (result.auth) {
-                    // console.log(result.user)
                     setCurrentUser(result.user);
-                    // setLoading(false);
                 }
-                console.log(result)
-                setLoading(false);
             });
     }, []);
-
-    // if (loading) {
-    //     return <span></span>;
-    // }
 
     return (
         <div className="nav-bar">

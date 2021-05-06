@@ -1,6 +1,9 @@
 .footer-area{
-    background-image: url(../../../images/footer-bg.png);
+    background-image: linear-gradient(rgba(230, 230, 250, 0.425), rgba(230, 230, 250, 0.384)), url(../../../images/footer-bg.png);
     background-size: cover;
+    border-radius: 30% 30% 0 0;
+    padding-top: 80px;
+    margin-top: 50px;
 }
 
 .footer-area li{

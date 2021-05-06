@@ -9,7 +9,6 @@ const TagsList = () => {
         fetch(`${process.env.REACT_APP_SERVER_URL}/tags`)
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
                 setTagsList(data);
             });
     }, []);
@@ -21,7 +20,7 @@ const TagsList = () => {
             {
                 tagsList?.map(tag => {
                     return (
-                        <Link to={`/tags/${tag}`} className="language-name">
+                        <Link to={`/tags/${tag}`} className="language-name" key={tag}>
                             <li>{tag}</li>
                         </Link>
                     );

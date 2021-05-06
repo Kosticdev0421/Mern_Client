@@ -24,15 +24,16 @@ const Testimonials = () => {
         );
     }
     return (
-        <section className="my-5 py-5" id="reviews">
+        <section id="reviews">
             <h1 className="text-brand text-center mb-5">What Our Students Say</h1>
             <Carousel
                 showArrows={true}
                 infiniteLoop={true}
                 showThumbs={false}
-                showStatus={false}
                 autoPlay={true}
                 interval={3000}
+                stopOnHover={true}
+                swipeable={true}
             >
                 {testimonials && testimonials.map((testimonial) => (
                     <div key={testimonial._id}>

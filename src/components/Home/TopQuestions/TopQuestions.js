@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import loadingImg from "../../../images/Loading-Infinity.gif";
 import Question from '../../Question/Question';
 import './TopQuestions.css';
 
@@ -19,8 +18,7 @@ const TopQuestions = () => {
     if (loading) {
         return (
             <div className="loading">
-                
-                <img src={loadingImg} alt="" />
+                <p>Loading top questions...</p>
             </div>
         );
     }
@@ -29,7 +27,7 @@ const TopQuestions = () => {
         <div className="top-questions">
             {topQuestions && topQuestions.map((question, i) => {
                 return (
-                    <div>
+                    <div key={question._id}>
                         <h3>{titles[i]}</h3>
                         <Question question={question} />
                     </div>

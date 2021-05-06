@@ -49,7 +49,7 @@ const Features = () => {
             <div className="features-container">
                 {featuresData.map((feature) => {
                     return (
-                        <div className="feature">
+                        <div className="feature" key={feature.title}>
                             <div className="feature-icon">
                                 <FontAwesomeIcon icon={feature.icon} />
                             </div>

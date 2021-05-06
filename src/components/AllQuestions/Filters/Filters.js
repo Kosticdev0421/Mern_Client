@@ -30,7 +30,7 @@ const Filters = ({getQuestions}) => {
         .then((res) => res.json())
         .then((data) => {
                 setQuestions(data);
-                console.log(data)
+                // console.log(data)
             });
         }
     };

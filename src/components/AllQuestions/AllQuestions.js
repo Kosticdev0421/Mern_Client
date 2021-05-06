@@ -18,7 +18,6 @@ const AllQuestions = () => {
     if (loading) {
         return (
             <div className="loading">
-                
                 <img src={loadingImg} alt="" />
             </div>
         );
@@ -28,6 +27,7 @@ const AllQuestions = () => {
         <div className="all-questions-container">
             <Filters getQuestions={[questions, setQuestions]} />
             <small>Number of questions loaded: {questions.length}</small>
+            
             <div className="all-questions">
                 {questions &&
                     questions.map((question) => (
