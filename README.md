@@ -11,6 +11,11 @@
 - Update/delete questions
 - Update/delete answers
 
+## Tools
+- REACT
+- EXPRESSJS
+- MONGODB
+- JWT Token
 
 ## Features to be added:
 - ranking
