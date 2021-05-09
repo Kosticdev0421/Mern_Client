@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Question from '../../Question/Question';
+import Question from '../../Questions/Question/Question';
 import './TopQuestions.css';
 
 const TopQuestions = () => {

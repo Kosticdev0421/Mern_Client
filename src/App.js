@@ -9,7 +9,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 import Home from './components/Home/Home';
 import NotFound from './components/NotFound/NotFound';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-import QuestionDetail from './components/QuestionDetail/QuestionDetail';
+import QuestionDetail from './components/Questions/QuestionDetail/QuestionDetail';
 import QuestionsByTag from './components/QuestionsByTag/QuestionsByTag';
 import TagsList from "./components/TagsList/TagsList";
 import LogIn from './components/UserAccount//LogIn/LogIn';

@@ -2,7 +2,7 @@ import { faClock, faCode, faComment, faEye, faThumbsUp, faUser } from "@fortawes
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Link } from "react-router-dom";
-import { displayTime } from "../../utilities/Time";
+import { displayTime } from '../../../utilities/Time';
 import "./Question.css";
 
 const Question = ({ question }) => {

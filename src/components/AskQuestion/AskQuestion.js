@@ -43,13 +43,7 @@ const AskQuestion = () => {
                 <Code code={[code, setCode]} editable={true} />
                 <small>ট্যাগ যুক্ত করুন</small>
                 <SelectTags states={[tags, setTags]} />
-                {/* <input
-                    className="question-input"
-                    placeholder="প্রশ্নটি কোন প্রোগ্রামিং ভাষার?"
-                    required
-                    value={questionLanguage}
-                    onChange={(e) => setQuestionLanguage(e.target.value)}
-                /> */}
+
                 <button className="btn-brand">প্রশ্ন করুন</button>
             </form>
         </div>

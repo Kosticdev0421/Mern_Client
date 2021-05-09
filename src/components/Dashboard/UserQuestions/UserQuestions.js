@@ -2,7 +2,7 @@ import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Question from '../../Question/Question';
+import Question from '../../Questions/Question/Question';
 
 const UserQuestions = ({userInfo}) => {
     const {questions} = userInfo;

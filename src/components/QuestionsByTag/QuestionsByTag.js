@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import Question from "../Question/Question";
+import Question from "../Questions/Question/Question";
 
 const QuestionsByTag = () => {
     const {tag} = useParams();

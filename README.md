@@ -1,4 +1,6 @@
-# [Programming babocched](https://programmingb.netlify.app/)
+# Programming babocched
+A website for asking and answering programming related questions and
+problems.
 
 ## Features added
 - Ask questions
@@ -10,7 +12,7 @@
 - User dashboard
 - Update/delete questions
 - Update/delete answers
-
+- 
 ## Tools
 - REACT
 - EXPRESSJS
@@ -18,12 +20,12 @@
 - JWT Token
 
 ## Features to be added:
-- ranking
 - refresh token
+- ranking
+- Detect question language automatically
 
 
 [Live view](https://programmingb.netlify.app/)
-
 
 ## Field to work on
 - search

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import loadingImg from "../../images/Loading-Infinity.gif";
-import Question from '../Question/Question';
+import Question from '../Questions/Question/Question';
 import './AllQuestions.css';
 import Filters from './Filters/Filters';
 const AllQuestions = () => {
