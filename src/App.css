@@ -1,12 +1,24 @@
+@font-face {
+  font-family: niladri;
+  src: url(./fonts/Li\ Niladri\ Nur\ Unicode.ttf);
+}
+@font-face {
+  font-family: ador;
+  src: url(./fonts/Li\ Ador\ Noirrit\ Unicode.ttf);
+}
 .App {
   text-align: center;
   /* background-color: aliceblue; */
   box-sizing: border-box;
+  max-width: 100%;
+  
 }
 
 .link-text{
   color: white;
   outline: none;
+  font-family: ador, Arial, Helvetica, sans-serif;
+
 }
 .error-text{
   color: red;
@@ -58,6 +70,7 @@ textarea{
 .highlighted-text{
   display: inline;
   color: #404083;
+  font-family: ador, Arial, Helvetica, sans-serif;
   /* padding: 5px 5px 0px; */
   background-position-y: -0%;
   background-image: linear-gradient( lavender 40%, yellow 60%);

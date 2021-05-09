@@ -23,7 +23,7 @@ const Question = ({ question }) => {
                     {
                         <i>
                             {question.tags?.map((tag) => (
-                                <a className="tag" href={`/languages/${tag}`} key={tag} alt="">
+                                <a className="tag" href={`/tags/${tag}`} key={tag} alt="">
                                     {tag}
                                 </a>
                             )) || question.questionLanguage}

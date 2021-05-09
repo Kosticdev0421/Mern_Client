@@ -11,13 +11,14 @@ div.ReactTags__tagInput {
 }
 div.ReactTags__tagInput input.ReactTags__tagInputField,
 div.ReactTags__tagInput input.ReactTags__tagInputField:focus {
-    border-radius: 10px;
+    width: 95%;
+    background-color: transparent;
     height: 35px;
     margin: 0;
     font-size: 15px;
-    width: 100%;
-    border: 1px solid black;
-    padding: 0 4px;
+    border: none;
+    border-left: 2px solid black;
+    
 }
 
 /* Styles for selected tags */
@@ -27,13 +28,10 @@ div.ReactTags__selected span.ReactTags__tag {
     padding: 5px 5px 5px 10px;
     border-radius: 30px;
     text-align: center;
-    font-size: 12px;
+    font-size: 15px;
     cursor: move;
 }
 div.ReactTags__selected .ReactTags__remove {
-    /* height: 10px;
-    width: 10px;
-    margin: 0; */
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -61,6 +59,12 @@ div.ReactTags__suggestions li mark {
 }
 div.ReactTags__suggestions ul li.ReactTags__activeSuggestion {
     background: #b7cfe0;
-    background: teal;
+    /* background: teal; */
+    min-width: 100px;
+    padding: 0px 20px 5px 10px;
     cursor: pointer;
+}
+div.ReactTags__suggestions ul{
+    padding: 0;
+    margin-left: 20px;
 }

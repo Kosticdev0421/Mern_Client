@@ -1,6 +1,6 @@
 .login-form{
     width: 90%;
-    max-width: 550px;
+    /* max-width: 550px; */
     border: 1px dashed;
     margin: 1rem auto;
     padding: 1rem;
@@ -14,8 +14,8 @@
 }
 .login-form > input {
     display: block;
-    width: 80%;
-    margin: 1rem;
-    border: 1px solid;
+    width: 95%;
+    margin: 1rem auto;
+    border: none;
     border-radius: 10px;
 }

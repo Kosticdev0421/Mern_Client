@@ -19,12 +19,12 @@ const AskQuestion = () => {
 
     return (
         <div>
-            <small className="text-brand">জ্ঞান অর্জনে কোন কার্পণ্য নেই</small>
-            <form className="login-form" onSubmit={handleQuestionQuery}>
+            {/* <small className="text-brand">জ্ঞান অর্জনে কোন কার্পণ্য নেই</small> */}
+            <form className="ask-question" onSubmit={handleQuestionQuery}>
                 <small>ধরুন আপনার বন্ধুকে প্রশ্নটি করছেন</small>
                 <input
                     className="question-input"
-                    placeholder="প্রশ্নটিকে এক লাইনে উপস্থাপন করুন"
+                    placeholder="প্রশ্নটি এক লাইনে উপস্থাপন করুন"
                     required
                     value={questionTitle}
                     onChange={(e) => setQuestionTitle(e.target.value)}
