@@ -6,6 +6,10 @@
   font-family: ador;
   src: url(./fonts/Li\ Ador\ Noirrit\ Unicode.ttf);
 }
+@font-face {
+  font-family: alima;
+  src: url(./fonts/Li\ Sirajee\ Alima\ Unicode.ttf);
+}
 .App {
   text-align: center;
   /* background-color: aliceblue; */
@@ -58,15 +62,34 @@ textarea{
   color: #404083;
 }
 .btn-brand{
-  border: none;
+  /* border: none;
   outline: none;
   cursor: pointer;
   background-color: teal;
   background-color: #404083;
   color: white;
   margin: 10px;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1rem; */
+  height: 40px;
+  width: 150px;
+  margin: 1rem auto;
+  color: white;
+  font-weight: 700;
+  font-family: ador, Arial, sans-serif;
+  border: 1px solid white;
+  background-color: #404083;
+  cursor: pointer;
+
+  background-image: linear-gradient(45deg,#fff 50%, transparent 50%);
+  background-position: 100%;
+  background-size: 400%;
+  transition: 0.8s all cubic-bezier(0.280, 0.840, 0.420, 1);
 }
+.btn-brand:hover{
+  color: #111111;
+  background-position: 0;
+}
+
 .highlighted-text{
   display: inline;
   color: #404083;

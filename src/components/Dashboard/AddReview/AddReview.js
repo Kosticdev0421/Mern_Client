@@ -11,10 +11,10 @@ const AddReview = () => {
     return (
         <div style={{width: "100vw"}}>
             <h2>Review</h2>
-            <form onSubmit={handleAddReview} className="login-form">
-                <input type="text" placeholder="Your Name" value={currentUser.userName} ref={nameRef} />
-                <input type="text" placeholder="University name, Designation" ref={fromRef} />
-                <textarea placeholder="Write something nice" ref={quoteRef} />
+            <form onSubmit={handleAddReview}>
+                <input className="question-input" type="text" placeholder="Your Name" value={currentUser.userName} ref={nameRef} />
+                <input className="question-input" type="text" placeholder="University name, Designation" ref={fromRef} />
+                <textarea className="question-input" placeholder="Write something nice" ref={quoteRef} />
                 <button className="btn btn-brand">Submit</button>
             </form>
         </div>

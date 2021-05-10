@@ -1,31 +1,33 @@
 import { useEffect, useState } from 'react';
-import { Link, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import loadingImg from '../../images/Loading-Infinity.gif';
-import LogOut from '../UserAccount/LogOut/LogOut';
+import PrivateRouteAdmin from '../PrivateRoute/PrivateRouteAdmin';
 import AddReview from './AddReview/AddReview';
 import './Dashboard.css';
 import EditQuestion from './EditQuestion/EditQuestion';
+import MakeAdmin from './MakeAdmin/MakeAdmin';
 import Overview from './Overview/Overview';
+import SideBar from './Sidebar/SideBar';
 import UserAnswers from './UserAnswers/UserAnswers';
 import UserQuestions from './UserQuestions/UserQuestions';
 
 const Dashboard = () => {
+    const [userInfo, setUserInfo] = useState({});
+    const [loading, setLoading] = useState(true);
 
-        const [userInfo, setUserInfo] = useState({});
-        const [loading, setLoading] = useState(true);
-        useEffect(() => {
-            fetch(`${process.env.REACT_APP_SERVER_URL}/userInfo`, {
-                headers: {
-                    "x-access-token": localStorage.getItem("token"),
-                },
-            })
-                .then((res) => res.json())
-                .then((data) => {
-                    setUserInfo(data);
-                    console.log(data);
-                    setLoading(false);
-                });
-        }, []);
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_SERVER_URL}/userInfo`, {
+            headers: {
+                "x-access-token": localStorage.getItem("token"),
+            },
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                setUserInfo(data);
+                console.log(data);
+                setLoading(false);
+            });
+    }, []);
     if(loading){
         return (
             <div className="loading">
@@ -37,27 +39,8 @@ const Dashboard = () => {
     return (
         <div className="dashboard">
 
-
-            <nav className="sidebar">
-                <Link to="/" className="link-text">
-                    <li>Home</li>
-                </Link>
-                <Link to="/dashboard/overview" className="link-text">
-                    <li>Overview</li>
-                </Link>
-                <Link to="/dashboard/questions" className="link-text">
-                    <li>Questions</li>
-                </Link>
-                <Link to="/dashboard/answers" className="link-text">
-                    <li>Answers</li>
-                </Link>
-                <Link to="/dashboard/addReview" className="link-text">
-                    <li>Write A Review</li>
-                </Link>
-                <span style={{margin: "auto 0"}}>
-                    <LogOut />
-                </span>
-            </nav>
+            <SideBar />
+            
             <Switch>
                 <Route exact path="/dashboard/">
                     <Overview userInfo={userInfo} />
@@ -77,9 +60,15 @@ const Dashboard = () => {
                 <Route exact path="/dashboard/addReview">
                     <AddReview />
                 </Route>
+                
+                <PrivateRouteAdmin exact path="/dashboard/make-admin">
+                    <MakeAdmin />
+                </PrivateRouteAdmin>
             </Switch>
         </div>
     );
+    
 };
+
 
 export default Dashboard;

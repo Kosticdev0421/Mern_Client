@@ -59,7 +59,7 @@ const QuestionDetail = () => {
         <div>
             {question && (
                 <div className="question-detail">
-                    <div className="question-info">
+                    <div className="question-detail-info">
                         <h3>{question.questionTitle || ""}</h3>
                         <p>{question.questionText}</p>
                         <i>
@@ -92,11 +92,12 @@ const QuestionDetail = () => {
         const [answerText, setAnswerText] = useState("");
             const [code, setCode] = useState("");
         return (
-            <form className="login-form" onSubmit={addAnswer} style={{margin: 0, maxWidth: "650px"}}>
+            <form className="login-form" onSubmit={addAnswer} >
                 
                 <textarea
-                    cols="45"
-                    rows="5"
+                    // cols="45"
+                    // rows="5"
+                    className="question-input"
                     placeholder="আপনার চমৎকার উত্তরটি এখানে লিখুন"
                     required
                     value={answerText}

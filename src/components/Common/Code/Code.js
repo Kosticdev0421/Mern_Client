@@ -49,7 +49,7 @@ const Code = (props) => {
                     matchBrackets: true,
                     autoCloseBrackets: true,
                     lint: true,
-                    tabSize: 4,
+                    tabSize: 2,
                     fullScreen: false,
                     readOnly: props.editable ? false : true,
                     placeholder: `if(you have any code){
