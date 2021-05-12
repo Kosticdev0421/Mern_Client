@@ -8,7 +8,7 @@ import "./Question.css";
 const Question = ({ question }) => {
     return (
         <div className="question">
-            <h3 className="highlighted-text">{question.questionTitle || question.questionText}</h3>
+            <h3 className="highlighted-text">{question.questionTitle}</h3>
             <div className="question-info">
                 <p>
                     <FontAwesomeIcon color="#404083" icon={faUser} className="icons" />
@@ -26,7 +26,7 @@ const Question = ({ question }) => {
                                 <a className="tag" href={`/tags/${tag}`} key={tag} alt="">
                                     {tag}
                                 </a>
-                            )) || question.questionLanguage}
+                            ))}
                         </i>
                     }
                 </p>

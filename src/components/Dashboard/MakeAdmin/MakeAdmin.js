@@ -10,7 +10,7 @@ const MakeAdmin = () => {
             }}
         >
             <form onSubmit={handleMakeAdmin}>
-                <input type="text" className="question-input" placeholder="Email" ref={emailRef} />
+                <input type="text" className="user-input" placeholder="Email" ref={emailRef} />
                 <button className="btn-brand">Make Admin</button>
             </form>
         </div>

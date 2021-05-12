@@ -11,16 +11,7 @@
     align-items: center;
     justify-content: center; */
 }
-.question-input{
-    font-size: 1rem;
-    padding: 10px 8px;
-    border: none;
-    outline: none;
-    margin: 5px auto 20px;
-    background-color: transparent;
-    border-left: 2px solid black;
-    width: 95%;
-}
+
 .highlighted{
     color: red;
 }

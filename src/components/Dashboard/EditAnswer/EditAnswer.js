@@ -31,7 +31,7 @@ const EditAnswer = ({answer}) => {
         const answer = {
             answerText,
             code,
-            updatedAt: new Date(),
+            updatedAt: new Date().getTime(),
         };
         fetch(`${process.env.REACT_APP_SERVER_URL}/editAnswer/${id}`, {
             method: "POST",

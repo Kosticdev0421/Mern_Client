@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { WithContext as ReactTags } from 'react-tag-input';
 import './SelectTags.css';
 const KeyCodes = {
@@ -10,9 +10,17 @@ const delimiters = [KeyCodes.comma, KeyCodes.enter];
 const SelectTags = (props) => {
     
     const [tags, setTags] = props.states;
-    const tagsList = ["C", "C++", "Python", "Javascript", "MathLab", "Fortran"];
+    //const tagsList = ["C", "C++", "Python", "Javascript", "MathLab", "Fortran"];
 
-    const suggestions = tagsList.map((language) => {
+    const [tagsList, setTagsList] = useState([]);
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_SERVER_URL}/tags`)
+            .then((res) => res.json())
+            .then((data) => {
+                setTagsList(data);
+            });
+    }, []);
+    const suggestions = tagsList?.map((language) => {
         return {
             id: language,
             text: language,
@@ -37,17 +45,17 @@ const SelectTags = (props) => {
     }
 
         return (
-                <ReactTags
-                    tags={tags}
-                    suggestions={suggestions}
-                    placeholder="প্রশ্নটি কোন বিষয়ের/প্রোগ্রামিং ভাষার?"
-                    minQueryLength={1}
-                    autofocus={false}
-                    handleDelete={handleDelete}
-                    handleAddition={handleAddition}
-                    handleDrag={handleDrag}
-                    delimiters={delimiters}
-                />
+            <ReactTags
+                tags={tags}
+                suggestions={suggestions}
+                placeholder="ট্যাগ যুক্ত করুন"
+                minQueryLength={1}
+                autofocus={false}
+                handleDelete={handleDelete}
+                handleAddition={handleAddition}
+                handleDrag={handleDrag}
+                delimiters={delimiters}
+            />
         );
 
 }

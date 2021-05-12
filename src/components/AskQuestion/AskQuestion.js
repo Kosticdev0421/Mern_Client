@@ -21,28 +21,46 @@ const AskQuestion = () => {
         <div>
             {/* <small className="text-brand">জ্ঞান অর্জনে কোন কার্পণ্য নেই</small> */}
             <form className="ask-question" onSubmit={handleQuestionQuery}>
-                <small>ধরুন আপনার বন্ধুকে প্রশ্নটি করছেন</small>
-                <input
-                    className="question-input"
-                    placeholder="প্রশ্নটি এক লাইনে উপস্থাপন করুন"
-                    required
-                    value={questionTitle}
-                    onChange={(e) => setQuestionTitle(e.target.value)}
-                />
-                <small>উত্তরদাতার প্রশ্নটি পুরোপুরি বোঝার জন্য যা যা দরকার তা দিন</small>
-                <textarea
-                    className="question-input"
-                    style={{ height: questionHeight }}
-                    placeholder="আপনার অসাধারণ প্রশ্নটি এখানে লিখুন"
-                    required
-                    value={questionText}
-                    onChange={handleQuestionInput}
-                    // onKeyDown={handleKeyDown}
-                ></textarea>
+                <div className="inputs">
+                    <input
+                        className="user-input"
+                        placeholder="প্রশ্নটি এক লাইনে উপস্থাপন করুন"
+                        required
+                        value={questionTitle}
+                        onChange={(e) => setQuestionTitle(e.target.value)}
+                    />
+                    <span class="tooltip">
+                        <li>ধরুন আপনার বন্ধুকে প্রশ্নটি করছেন</li>
+                    </span>
+                </div>
+
+                <div className="inputs">
+                    <textarea
+                        className="user-input"
+                        style={{ height: questionHeight }}
+                        placeholder="আপনার অসাধারণ প্রশ্নটি এখানে লিখুন"
+                        required
+                        value={questionText}
+                        onChange={handleQuestionInput}
+                        // onKeyDown={handleKeyDown}
+                    ></textarea>
+                    <span class="tooltip">
+                        <li>উত্তরদাতার প্রশ্নটি পুরোপুরি বোঝার জন্য যা যা দরকার তা দিন</li>
+                    </span>
+                </div>
+                
                 <small>কোন কোডিং এর প্রয়োজন আছে কি?</small>
                 <Code code={[code, setCode]} editable={true} />
-                <small>ট্যাগ যুক্ত করুন</small>
-                <SelectTags states={[tags, setTags]} />
+                
+                <div className="inputs">
+                    <SelectTags states={[tags, setTags]} />
+                    <span className="tooltip">
+                        <li>চেষ্টা করুন সাজেশনগুলো থেকে ট্যাগ যুক্ত করার</li>
+                        <li>ট্যাগ ২-৫ টি এর মধ্যে রাখুন</li>
+                        <li>প্রশ্নটি কোন প্রোগ্রামিং ভাষার?</li>
+                        <li>অথবা কোন বিষয়ের?</li>
+                    </span>
+                </div>
 
                 <button className="btn-brand">প্রশ্ন করুন</button>
             </form>

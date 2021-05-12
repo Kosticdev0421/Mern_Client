@@ -1,6 +1,7 @@
 import { faClock, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
+import { displayTime } from '../../utilities/Time';
 import Code from '../Common/Code/Code';
 import Reactions from '../Common/Reactions/Reactions';
 import './Answer.css';
@@ -16,9 +17,8 @@ const Answer = ({answer}) => {
             <p>{answerText}</p>
             {code && <Code code={[code]} editable={false} />}
             <span>
-                <FontAwesomeIcon icon={faClock} />{" "}
-                {answeredToday ? "today" : new Date(answeredAt).toLocaleDateString()}{" "}
-                <FontAwesomeIcon icon={faUser} /> {answeredBy.userName}
+                <FontAwesomeIcon icon={faClock} className="icon" /> {displayTime(answeredAt)}{" "}
+                <FontAwesomeIcon icon={faUser} className="icon" /> {answeredBy.userName}
             </span>
             <Reactions
                 of={answer}

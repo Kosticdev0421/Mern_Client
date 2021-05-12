@@ -95,9 +95,7 @@ const QuestionDetail = () => {
             <form className="login-form" onSubmit={addAnswer} >
                 
                 <textarea
-                    // cols="45"
-                    // rows="5"
-                    className="question-input"
+                    className="user-input"
                     placeholder="আপনার চমৎকার উত্তরটি এখানে লিখুন"
                     required
                     value={answerText}
@@ -118,7 +116,7 @@ const QuestionDetail = () => {
                     questionId: question._id,
                     answerText,
                     code,
-                    answeredAt: new Date(),
+                    answeredAt: new Date().getTime(),
                 };
                 fetch(`${process.env.REACT_APP_SERVER_URL}/writeAnswer`, {
                     method: "POST",

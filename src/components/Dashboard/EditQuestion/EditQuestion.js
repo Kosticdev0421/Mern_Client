@@ -43,7 +43,7 @@ const EditQuestion = () => {
                     onChange={(e) => setQuestionTitle(e.target.value)}
                 />
                 <textarea
-                    className="question-input"
+                    className="user-input"
                     cols="45"
                     rows="5"
                     placeholder="আপনার অসাধারণ প্রশ্নটি এখানে লিখুন"
@@ -72,7 +72,7 @@ const EditQuestion = () => {
             code,
             tags: tags.map((tag) => tag.id),
             // questionLanguage,
-            updatedAt: new Date(),
+            updatedAt: new Date().getTime(),
         };
         fetch(`${process.env.REACT_APP_SERVER_URL}/editQuestion/${id}`, {
             method: "POST",
