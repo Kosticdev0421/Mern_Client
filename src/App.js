@@ -1,6 +1,7 @@
 import { createContext, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
+import AboutUs from './components/AboutUs/AboutUs';
 import AllQuestions from './components/AllQuestions/AllQuestions';
 import AskQuestion from './components/AskQuestion/AskQuestion';
 import Code from './components/Common/Code/Code';
@@ -69,6 +70,10 @@ function App() {
                         <Route path="/editor">
                             <Nav />
                             <Code />
+                        </Route>
+                        <Route path="/about-us">
+                            <Nav />
+                            <AboutUs />
                         </Route>
                         <Route path="*">
                             <Nav />

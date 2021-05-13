@@ -35,8 +35,9 @@ const EditQuestion = () => {
     return (
         <div style={editStyle}>
             <small>জ্ঞান অর্জনে কোন কার্পণ্য নেই</small>
-            <form className="login-form" onSubmit={handleQuestionQuery}>
+            <form className="ask-question" onSubmit={handleQuestionQuery}>
                 <input
+                    className="user-input"
                     placeholder="প্রশ্নটিকে এক লাইনে উপস্থাপন করুন"
                     required
                     value={questionTitle}
@@ -44,8 +45,6 @@ const EditQuestion = () => {
                 />
                 <textarea
                     className="user-input"
-                    cols="45"
-                    rows="5"
                     placeholder="আপনার অসাধারণ প্রশ্নটি এখানে লিখুন"
                     required
                     value={questionText}
@@ -53,12 +52,7 @@ const EditQuestion = () => {
                 ></textarea>
                 <Code code={[code, setCode]} editable={true} />
                 <SelectTags states={[tags, setTags]} />
-                {/* <input
-                    placeholder="প্রশ্নটি কোন প্রোগ্রামিং ভাষার?"
-                    required
-                    value={questionLanguage}
-                    onChange={(e) => setQuestionLanguage(e.target.value)}
-                /> */}
+                
                 <button className="btn-brand">প্রশ্নটি আপডেট করুন</button>
             </form>
         </div>

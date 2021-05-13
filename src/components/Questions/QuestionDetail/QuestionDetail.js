@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import loadingImg from "../../../images/Loading-Infinity.gif";
+import { seo } from '../../../utilities/seo';
 import Answer from '../../Answer/Answer';
 import Code from '../../Common/Code/Code';
 import Reactions from '../../Common/Reactions/Reactions';
@@ -14,6 +15,11 @@ const QuestionDetail = () => {
     const [thumbsUpCount, setThumbsUpCount] = useState(0);
     const [thumbsUp, setThumbsUp] = useState(false);
     const [loading, setLoading] = useState(true);
+
+
+    seo({
+        title: question?.questionTitle,
+    });
 
 
     useEffect(() => {
@@ -90,21 +96,21 @@ const QuestionDetail = () => {
 
     function WriteAnswerForm(){
         const [answerText, setAnswerText] = useState("");
-            const [code, setCode] = useState("");
+        const [code, setCode] = useState("");
+        const [answerHeight, setAnswerHeight] = useState("100px");
+
         return (
-            <form className="login-form" onSubmit={addAnswer} >
-                
+            <form className="login-form" onSubmit={addAnswer}>
                 <textarea
                     className="user-input"
+                    style={{ height: answerHeight }}
                     placeholder="আপনার চমৎকার উত্তরটি এখানে লিখুন"
                     required
                     value={answerText}
-                    onChange={(e) => {
-                        setAnswerText(e.target.value);
-                    }}
+                    onChange={handleQuestionInput}
                 ></textarea>
-                <Code code={[code, setCode]} editable={true}/>
-                
+                <Code code={[code, setCode]} editable={true} />
+
                 <button className="btn-brand">উত্তরটি যোগ করুন</button>
             </form>
         );
@@ -134,6 +140,12 @@ const QuestionDetail = () => {
                             window.location.reload();
                         }
                     });
+            }
+
+            function handleQuestionInput(e) {
+                const height = Math.floor(e.target.scrollHeight / 10) * 10 - 20; //-20 for padding
+                setAnswerHeight(height + "px");
+                setAnswerText(e.target.value);
             }
 
     }

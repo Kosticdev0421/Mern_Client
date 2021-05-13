@@ -9,6 +9,7 @@
 .search-form {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 .search-form input {
     width: 80%;
@@ -20,7 +21,7 @@
     border: none;
     /* width: 80px; */
     position: absolute;
-    right: 18%;
+    right: 10%;
     background: transparent;
     cursor: pointer;
 }

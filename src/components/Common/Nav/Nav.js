@@ -55,6 +55,9 @@ const Nav = () => {
                         <li>লগ ইন করুন</li>
                     </Link>
                 )}
+                <Link to="/about-us" className="link-text">
+                    <li>About Us</li>
+                </Link>
             </ul>
         </div>
     );

@@ -6,6 +6,7 @@ import { displayTime } from '../../../utilities/Time';
 import "./Question.css";
 
 const Question = ({ question }) => {
+
     return (
         <div className="question">
             <h3 className="highlighted-text">{question.questionTitle}</h3>

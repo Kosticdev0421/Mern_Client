@@ -19,14 +19,18 @@ problems.
 - MONGODB
 - JWT Token
 
+## Work done
+- Time
+
 ## Features to be added:
 - refresh token
 - ranking
 - Detect question language automatically
-
-
-[Live view](https://programmingb.netlify.app/)
+- Notification
 
 ## Field to work on
 - search
-- Time
+- responsive
+- make view question detail public route but answers private
+
+[Live view](https://programmingb.netlify.app/)

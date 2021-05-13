@@ -4,6 +4,7 @@
 }
 .nav-bar ul{
     margin: 0;
+    padding: 0;
 }
 .nav-bar ul li{
     display: inline-block;

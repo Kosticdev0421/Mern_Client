@@ -6,10 +6,9 @@ const EditAnswer = ({answer}) => {
     const [code, setCode] = useState(answer.code);
     const id = answer._id;
     return (
-        <form className="login-form" onSubmit={addAnswer} style={{ margin: "0 auto", maxWidth: "650px" }}>
+        <form className="login-form" onSubmit={addAnswer} style={{ margin: "0 auto", maxWidth: "100%" }}>
             <textarea
-                cols="45"
-                rows="5"
+                className="user-input"
                 placeholder="আপনার চমৎকার উত্তরটি এখানে লিখুন"
                 required
                 value={answerText}
