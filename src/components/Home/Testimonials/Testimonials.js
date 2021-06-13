@@ -11,9 +11,11 @@ const Testimonials = () => {
         fetch(`${process.env.REACT_APP_SERVER_URL}/reviews`)
             .then((res) => res.json())
             .then((data) => {
-                setTestimonials(data);
                 setLoading(false);
-            });
+                setTestimonials(data);
+                console.log("Testimonial data: ", data);
+            })
+            .catch(err => console.log(err));
     }, []);
     // console.log(testimonials);
     if(loading){

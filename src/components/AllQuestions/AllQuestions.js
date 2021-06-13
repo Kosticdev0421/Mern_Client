@@ -18,6 +18,7 @@ const AllQuestions = () => {
     if (loading) {
         return (
             <div className="loading">
+                <p>Loading something awesome...</p>
                 <img src={loadingImg} alt="" />
             </div>
         );

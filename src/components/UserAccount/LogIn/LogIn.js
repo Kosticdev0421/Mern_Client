@@ -1,3 +1,5 @@
+import { faUserLock } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext, useState } from "react";
 import Particles from 'react-particles-js';
 import { Link, useHistory, useLocation } from "react-router-dom";
@@ -14,22 +16,22 @@ const LogIn = () => {
     return (
         <div>
             <div style={{ position: "absolute", zIndex: -1 }}>
-                <Particles height="80vh" width="100vw" params={particlesConfig} />
+                <Particles height="75vh" width="100vw" params={particlesConfig} />
             </div>
-            <h1>ঝাঁপিয়ে পরুন এখনই</h1>
+            <h1>Dive into it right now!</h1>
             <LogInForm />
             <small>
-                এখনও একাউন্ট থেকে বঞ্চিত? <Link to="/createAccount">ঝটপট একাউন্ট খুলুন</Link>
+                No account yet? <Link to="/createAccount">Create one now!</Link>
             </small>
         </div>
     );
 
     function LogInForm() {
-        const [email, setEmail] = useState("");
-        const [password, setPassword] = useState("");
+        const [email, setEmail] = useState("demo@pb.com");
+        const [password, setPassword] = useState("demo password");
         let history = useHistory();
         let location = useLocation();
-        let { from } = location.state || { from: { pathname: "/" } };
+        let { from } = location.state || { from: { pathname: "/dashboard" } };
         return (
             <form onSubmit={handleLogIn} className="login-form">
                 {loading && (
@@ -38,11 +40,12 @@ const LogIn = () => {
                         <img src={loadingImg} alt="" />
                     </div>
                 )}
+                <FontAwesomeIcon icon={faUserLock} size="3x" color="crimson" />
                 {error && <p className="error-text">{error}</p>}
                 <input
                     type="email"
                     name="email"
-                    placeholder="ইমেইল"
+                    placeholder="Email"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -50,7 +53,7 @@ const LogIn = () => {
                 <input
                     type="password"
                     name="password"
-                    placeholder="পাসওয়ার্ড"
+                    placeholder="Password"
                     required
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}

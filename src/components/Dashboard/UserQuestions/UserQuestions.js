@@ -11,6 +11,7 @@ const UserQuestions = ({userInfo}) => {
         <div className="home">
             <h3>
                 <FontAwesomeIcon icon={faQuestionCircle} />
+                {" "}Your Questions
             </h3>
             {questions &&
                 questions.map((question) => {

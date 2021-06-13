@@ -19,7 +19,7 @@ const Search = () => {
             <form className="search-form"> {/* onSubmit={handleSearch} */}
                 <input
                     type="text"
-                    placeholder="আপনার অসাধারণ প্রশ্নটি খুঁজুন"
+                    placeholder="Search Your incredible question"
                     onChange={handleSearch}
                 />
                 <button>

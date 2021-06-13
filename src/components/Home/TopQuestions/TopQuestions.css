@@ -22,7 +22,7 @@
     clip-path: polygon(0% 55%,0% 100%,0 100%,100% 100%);
 }
 .top-questions::before{
-    top: -15%;
+    top: -15.1%;
     -webkit-clip-path: polygon(0% 50%,100% 50%,100% 100%);
     clip-path: polygon(0% 50%,100% 50%,100% 100%);
     /* -webkit-clip-path: polygon(100% 30%,0 100%,100% 100%); */
@@ -41,6 +41,6 @@
         margin-bottom: 100px;
     }
     .top-questions::before{
-        top: -9.2%;
+        top: -8.5%;
     }
 }

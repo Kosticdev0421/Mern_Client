@@ -10,6 +10,7 @@ const UserAnswers = ({ userInfo }) => {
         <div className="home">
             <h3>
                 <FontAwesomeIcon icon={faQuoteLeft} />
+                {" "}Your Answers
             </h3>
             {answers &&
                 answers.map((answer) => {

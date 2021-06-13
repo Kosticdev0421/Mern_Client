@@ -45,7 +45,7 @@ const Features = () => {
 
     return (
         <div id="features">
-            <h2 className="text-brand">আমাদের অসাধারণ ফিচারগুলো</h2>
+            <h2 className="text-brand">Why Learn Here?</h2>
             <div className="features-container">
                 {featuresData.map((feature) => {
                     return (

@@ -1,3 +1,5 @@
+import { faUserLock } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import '../LogIn/LogIn.css';
@@ -5,10 +7,10 @@ const CreateAccount = () => {
     const history = useHistory();
     return (
         <div>
-            <h1>মচৎকার সব ফিচারের জন্য যুক্ত হন এখনই</h1>
+            <h1>Join for incredible</h1>
             <LogInForm />
             <small>
-                <Link to="/login">একবার একাউন্ট করলাম তো, আর কয়বার করব?</Link>
+                <Link to="/login">How many times should I create account?</Link>
             </small>
         </div>
     );
@@ -20,10 +22,11 @@ const CreateAccount = () => {
         const [error, setError] = useState('');
         return (
             <form onSubmit={handleLogIn} className="login-form">
+                <FontAwesomeIcon icon={faUserLock} size="3x" color="crimson" />
                 {error && <p className="error-text">{error}</p>}
                 <input
                     name="name"
-                    placeholder="যে নামে আপনাকে ডাকবো"
+                    placeholder="What should I call you?"
                     required
                     value={userName}
                     onChange={(e) => setUserName(e.target.value)}
@@ -32,12 +35,12 @@ const CreateAccount = () => {
                             "নাম ছাড়া ব্যক্তিত্ব গ্রহণযোগ্য নয়! প্রয়োজনে নতুন নাম দিয়ে আকিকা দিয়ে আসতে পারেন..."
                         )
                     }
-                    onInput={e => e.target.setCustomValidity("")}
+                    onInput={(e) => e.target.setCustomValidity("")}
                 />
                 <input
                     type="email"
                     name="email"
-                    placeholder="ইমেইল"
+                    placeholder="Email"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -45,16 +48,17 @@ const CreateAccount = () => {
                 <input
                     type="password"
                     name="password"
-                    placeholder="পাসওয়ার্ড"
+                    placeholder="Password"
                     required
                     value={password}
                     pattern=".{6,}"
                     onChange={(e) => setPassword(e.target.value)}
                     onInvalid={(e) =>
                         e.target.setCustomValidity(
-                            "ছয় অক্ষরেরে নীচে পাসওয়ার্ডকে পাসওয়ার্ড বলা যায় না"
-                        )}
-                        onInput={e => e.target.setCustomValidity("")}
+                            "6 অক্ষরেরে নীচে পাসওয়ার্ডকে পাসওয়ার্ড বলা যায় না"
+                        )
+                    }
+                    onInput={(e) => e.target.setCustomValidity("")}
                 />
                 <button className="btn-brand">Create</button>
             </form>

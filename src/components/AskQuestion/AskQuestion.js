@@ -15,7 +15,12 @@ const AskQuestion = () => {
     const history = useHistory();
     const [loading, setLoading] = useState(false);
 
-    if(loading) return <div className="loading"><img src={loadingImg} alt=""/></div>
+    if(loading) return (
+        <div className="loading">
+            <p>Loading something awesome...</p>
+            <img src={loadingImg} alt="" />
+        </div>
+    );
 
     return (
         <div>
