@@ -30,15 +30,15 @@ const UserAnswers = ({ userInfo }) => {
 
         return (
             <div>
-                <button className="btn-brand" onClick={() => setShowEdit(!showEdit)}>কিছু পরিবর্তন করুন</button>
-                <button className="btn-brand" onClick={() => deleteAnswer(answer._id)}>মুছে ফেলুন</button>
+                <button className="btn-brand" onClick={() => setShowEdit(!showEdit)}>Update</button>
+                <button className="btn-brand" onClick={() => deleteAnswer(answer._id)}>Delete</button>
                 {showEdit && <EditAnswer answer={answer} />}
             </div>
         );
     }
     function deleteAnswer(id) {
         const confirm = window.confirm(
-            "সত্যিই মুছে(ডিলিট) ফেলতে চাচ্ছেন?\nএকবার মুছলে পুনরায় ফিরে পাওয়া যাবে না!"
+            "Are you sure to delete? It can't be undone!"
         );
         if (confirm) {
             fetch(`${process.env.REACT_APP_SERVER_URL}/answer/${id}`, {

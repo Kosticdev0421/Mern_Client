@@ -20,9 +20,9 @@ const UserQuestions = ({userInfo}) => {
                             <Question question={question} key={question._id} />
                             <div>
                                 <Link to={`/dashboard/edit/${question._id}`}>
-                                    <button className="btn-brand">কিছু পরিবর্তন করুন</button>
+                                    <button className="btn-brand">Update</button>
                                 </Link>
-                                <button className="btn-brand" onClick={() => deleteQuestion(question._id)}>মুছে ফেলুন</button>
+                                <button className="btn-brand" onClick={() => deleteQuestion(question._id)}>Delete</button>
                             </div>
                         </div>
                     );
@@ -30,7 +30,7 @@ const UserQuestions = ({userInfo}) => {
         </div>
     );
     function deleteQuestion(id){
-        const confirm = window.confirm("সত্যিই মুছে(ডিলিট) ফেলতে চাচ্ছেন?\nএকবার মুছলে পুনরায় ফিরে পাওয়া যাবে না!");
+        const confirm = window.confirm("Are you sure to delete? It can't be undone!");
         if(confirm){
             fetch(`${process.env.REACT_APP_SERVER_URL}/question/${id}`, {
                 method: 'DELETE',
