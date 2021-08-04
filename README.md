@@ -1,6 +1,19 @@
-# Programming babocched
-A website for asking and answering programming related questions and
-problems.
+<h2 align="center">Programming babocched</h2> 
+<h6 align="center">A Q/A web application for programmers</h6>
+<br />
+
+![home page](https://github.com/Abdify/programming-babocched-client/blob/main/src/images/pb-home.PNG)
+
+![ask question](https://github.com/Abdify/programming-babocched-client/blob/main/src/images/pb-ask2.PNG)
+
+![dashboard](https://github.com/Abdify/programming-babocched-client/blob/main/src/images/dashboard.PNG)
+
+## Developed with:
+- Dedication and Dream
+- REACT
+- EXPRESSJS
+- MONGODB
+- JWT Token
 
 ## Features added
 - Ask questions
@@ -12,12 +25,7 @@ problems.
 - User dashboard
 - Update/delete questions
 - Update/delete answers
-- 
-## Tools
-- REACT
-- EXPRESSJS
-- MONGODB
-- JWT Token
+
 
 ## Work done
 - Time
@@ -33,4 +41,4 @@ problems.
 - responsive
 - make view question detail public route but answers private
 
-[Live view](https://programmingb.netlify.app/)
+Explore the website: [https://programmingb.netlify.app/](https://programmingb.netlify.app/)
