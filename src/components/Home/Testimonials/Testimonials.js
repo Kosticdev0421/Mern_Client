@@ -1,30 +1,27 @@
+import { getReviews } from 'api';
 import React, { useEffect, useState } from 'react';
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import loadingImg from "../../../images/Loading-Infinity.gif";
 import './Testimonials.css';
+
 
 const Testimonials = () => {
     const [testimonials, setTestimonials] = useState([]);
-    const [loading, setLoading] = useState(true);
+
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_SERVER_URL}/reviews`)
-            .then((res) => res.json())
-            .then((data) => {
-                setLoading(false);
+        const get = async () => {
+            try {
+                const { data } = await getReviews();
                 setTestimonials(data);
-                console.log("Testimonial data: ", data);
-            })
-            .catch(err => console.log(err));
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        get();
+
     }, []);
-    // console.log(testimonials);
-    if(loading){
-        return (
-            <div>
-                <img src={loadingImg} alt="" />
-            </div>
-        );
-    }
+    
+   
     return (
         <section id="reviews">
             <h1 className="text-brand text-center mb-5">What Our Students Say</h1>

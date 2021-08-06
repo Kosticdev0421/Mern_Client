@@ -1,10 +1,10 @@
 .login-form{
     width: 90%;
-    /* max-width: 550px; */
-    border: 1px dashed;
+    max-width: 550px;
     margin: 1rem auto;
     padding: 1rem;
-    background-color: lavender;
+    /* border: 1px dashed; */
+    /* background-color: lavender; */
 
     display: flex;
     flex-direction: column;
@@ -17,5 +17,7 @@
     width: 95%;
     margin: 1rem auto;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
+    border-top: 1px solid transparent;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }

@@ -5,7 +5,7 @@ import './Overview.css';
 
     
 const Overview = ({userInfo}) => {
-    const [currentUser, setCurrentUser] = useContext(userAuthContext);
+    const [currentUser] = useContext(userAuthContext);
 
     return (
         <div className="overview">

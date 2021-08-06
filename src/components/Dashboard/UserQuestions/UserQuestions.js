@@ -1,5 +1,6 @@
 import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { deleteQuestion } from 'api';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Question from '../../Questions/Question/Question';
@@ -22,33 +23,27 @@ const UserQuestions = ({userInfo}) => {
                                 <Link to={`/dashboard/edit/${question._id}`}>
                                     <button className="btn-brand">Update</button>
                                 </Link>
-                                <button className="btn-brand" onClick={() => deleteQuestion(question._id)}>Delete</button>
+                                <button className="btn-brand" onClick={() => handleDelete(question._id)}>Delete</button>
                             </div>
                         </div>
                     );
                 })}
         </div>
     );
-    function deleteQuestion(id){
+    
+    async function handleDelete(id){
         const confirm = window.confirm("Are you sure to delete? It can't be undone!");
         if(confirm){
-            fetch(`${process.env.REACT_APP_SERVER_URL}/question/${id}`, {
-                method: 'DELETE',
-                headers: {
-                    'x-access-token': localStorage.getItem('token')
-                },
-            })
-            .then(res => res.json())
-            .then(serverResponse => {
-                if(serverResponse.success){
-                    alert(serverResponse.message + " page will reload now");
-                    setTimeout(() => {
-                        window.location.reload();
-                    }, 500);
-                } else {
-                    alert(serverResponse.message);
-                }
-            })
+            const { data } = await deleteQuestion(id);
+            if(!data.success){
+                alert(data.message);
+                return;
+            }
+            alert(data.message + " page will reload now");
+            setTimeout(() => {
+                window.location.reload();
+            }, 500);
+
         }
     }
 };

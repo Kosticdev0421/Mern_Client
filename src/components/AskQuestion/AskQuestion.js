@@ -1,3 +1,4 @@
+import { askQuestion } from 'api';
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import loadingImg from "../../images/Loading-Infinity.gif";
@@ -72,7 +73,7 @@ const AskQuestion = () => {
         </div>
     );
 
-    function handleQuestionQuery(e){
+    async function handleQuestionQuery(e){
         e.preventDefault();
         setLoading(true);
         const question = {
@@ -83,16 +84,8 @@ const AskQuestion = () => {
             tags: tags.map(tag => tag.id),
             askedAt: new Date().getTime(),
         }
-        fetch(`${process.env.REACT_APP_SERVER_URL}/ask`, {
-            method: "POST",
-            headers: {
-                "content-type": "application/json",
-                "x-access-token": localStorage.getItem("token"),
-            },
-            body: JSON.stringify(question),
-        })
-        .then(res => res.json())
-        .then(data => {
+        try {
+            const { data } = await askQuestion(question);
             setLoading(false);
             if(data.success){
                 setQuestionText("");
@@ -101,7 +94,10 @@ const AskQuestion = () => {
             else{
                 alert('Something went wrong, please try again!')
             }
-        })    
+        } catch (error) {
+            console.log(error);
+        }
+ 
     }
 
 

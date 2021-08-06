@@ -5,7 +5,7 @@ import LogOut from '../../UserAccount/LogOut/LogOut';
 import './Sidebar.css';
 
 const SideBar = () => {
-    const [currentUser, setCurrentUser] = useContext(userAuthContext);
+    const [currentUser] = useContext(userAuthContext);
 
     return (
         <nav className="sidebar">

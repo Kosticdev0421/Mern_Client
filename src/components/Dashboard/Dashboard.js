@@ -1,3 +1,4 @@
+import { getUserInfo } from 'api';
 import { useEffect, useState } from 'react';
 import { Route, Switch } from "react-router-dom";
 import loadingImg from '../../images/Loading-Infinity.gif';
@@ -16,26 +17,27 @@ const Dashboard = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_SERVER_URL}/userInfo`, {
-            headers: {
-                "x-access-token": localStorage.getItem("token"),
-            },
-        })
-            .then((res) => res.json())
-            .then((data) => {
+        const get = async () => {
+            try {
+                const { data } = await getUserInfo();
                 setUserInfo(data);
-                console.log(data);
                 setLoading(false);
-            });
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        get();
+
     }, []);
+
     if(loading){
         return (
             <div className="loading">
-                
                 <img src={loadingImg} alt="" />
             </div>
         );
     }
+
     return (
         <div className="dashboard">
 

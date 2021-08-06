@@ -1,3 +1,4 @@
+import { getQuestions } from 'api';
 import React, { useEffect, useState } from 'react';
 import loadingImg from "../../images/Loading-Infinity.gif";
 import Question from '../Questions/Question/Question';
@@ -7,12 +8,16 @@ const AllQuestions = () => {
     const [questions, setQuestions] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_SERVER_URL}/questions`)
-            .then((res) => res.json())
-            .then((data) => {
+        const get = async () => {
+            try {
+                const { data } = await getQuestions();
                 setQuestions(data);
                 setLoading(false);
-            });
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        get();
     }, []);
 
     if (loading) {

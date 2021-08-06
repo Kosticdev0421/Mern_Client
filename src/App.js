@@ -1,21 +1,20 @@
+import AboutUs from 'components/AboutUs/AboutUs';
+import AllQuestions from 'components/AllQuestions/AllQuestions';
+import AskQuestion from 'components/AskQuestion/AskQuestion';
+import Code from 'components/Common/Code/Code';
+import Nav from 'components/Common/Nav/Nav';
+import Dashboard from 'components/Dashboard/Dashboard';
+import Home from 'components/Home/Home';
+import NotFound from 'components/NotFound/NotFound';
+import PrivateRoute from 'components/PrivateRoute/PrivateRoute';
+import QuestionDetail from 'components/Questions/QuestionDetail/QuestionDetail';
+import QuestionsByTag from 'components/QuestionsByTag/QuestionsByTag';
+import TagsList from "components/TagsList/TagsList";
+import CreateAccount from 'components/UserAccount/CreateAccount/CreateAccount';
+import LogIn from 'components/UserAccount/LogIn/LogIn';
 import { createContext, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
-import AboutUs from './components/AboutUs/AboutUs';
-import AllQuestions from './components/AllQuestions/AllQuestions';
-import AskQuestion from './components/AskQuestion/AskQuestion';
-import Code from './components/Common/Code/Code';
-import Nav from './components/Common/Nav/Nav';
-import Dashboard from './components/Dashboard/Dashboard';
-import Home from './components/Home/Home';
-import NotFound from './components/NotFound/NotFound';
-import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-import QuestionDetail from './components/Questions/QuestionDetail/QuestionDetail';
-import QuestionsByTag from './components/QuestionsByTag/QuestionsByTag';
-import TagsList from "./components/TagsList/TagsList";
-import LogIn from './components/UserAccount//LogIn/LogIn';
-import CreateAccount from './components/UserAccount/CreateAccount/CreateAccount';
-
 export const userAuthContext = createContext();
 
 function App() {

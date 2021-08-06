@@ -1,3 +1,4 @@
+import { getTags } from 'api';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './TagsList.css';
@@ -6,12 +7,17 @@ const TagsList = () => {
     // const tagsList = ["C", "C++", "Python", "Javascript", "MathLab", "Fortran"];
     const [tagsList, setTagsList] = useState([]);
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_SERVER_URL}/tags`)
-            .then((res) => res.json())
-            .then((data) => {
+        const get = async () => {
+            try {
+                const { data } = await getTags();
                 setTagsList(data);
-            });
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        get();
     }, []);
+    
     return (
         <div className="languages-list">
             <Link to="/tags/algorithms" className="language-name featured">

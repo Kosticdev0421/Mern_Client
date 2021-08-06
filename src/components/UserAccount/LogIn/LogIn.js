@@ -1,11 +1,9 @@
 import { faUserLock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { logIn } from "api";
 import React, { useContext, useState } from "react";
-import Particles from 'react-particles-js';
 import { Link, useHistory, useLocation } from "react-router-dom";
 import { userAuthContext } from "../../../App";
-import particlesConfig from "../../../config/particlesConfig";
-import loadingImg from "../../../images/Loading-Infinity.gif";
 import "./LogIn.css";
 
 const LogIn = () => {
@@ -15,9 +13,9 @@ const LogIn = () => {
 
     return (
         <div>
-            <div style={{ position: "absolute", zIndex: -1 }}>
+            {/* <div style={{ position: "absolute", zIndex: -1 }}>
                 <Particles height="75vh" width="100vw" params={particlesConfig} />
-            </div>
+            </div> */}
             <h1>Dive into it right now!</h1>
             <LogInForm />
             <small>
@@ -32,14 +30,14 @@ const LogIn = () => {
         let history = useHistory();
         let location = useLocation();
         let { from } = location.state || { from: { pathname: "/dashboard" } };
+        
         return (
             <form onSubmit={handleLogIn} className="login-form">
-                {loading && (
+                {/* {loading && (
                     <div className="loading">
-                        
                         <img src={loadingImg} alt="" />
                     </div>
-                )}
+                )} */}
                 <FontAwesomeIcon icon={faUserLock} size="3x" color="crimson" />
                 {error && <p className="error-text">{error}</p>}
                 <input
@@ -58,41 +56,33 @@ const LogIn = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <button className="btn-brand">Log in</button>
+                <button className="btn-brand" disabled={loading}>Log in</button>
             </form>
         );
 
-        function handleLogIn(e) {
+        async function handleLogIn(e) {
             e.preventDefault();
             setLoading(true);
             const user = {
                 email,
                 password,
             };
-            fetch(`${process.env.REACT_APP_SERVER_URL}/login`, {
-                method: "POST",
-                headers: {
-                    "content-type": "application/json",
-                },
-                body: JSON.stringify(user),
-            })
-                .then((res) => res.json())
-                .then((data) => {
-                    // console.log(data);
-                    if (data.success) {
-                        // console.log(data);
-                        localStorage.setItem("token", data.token);
-                        localStorage.setItem('refreshToken', data.refreshToken);
-                        setCurrentUser(data.user);
-                        history.replace(from);
-                    } else {
-                        setError(data.message);
-                        setLoading(false);
-                    }
-                });
 
-            // setEmail("");
-            // setPassword("");
+            try {
+                const { data } = await logIn(user);
+                if (data.success) {
+                    localStorage.setItem("token", data.token);
+                    localStorage.setItem("refreshToken", data.refreshToken);
+                    setCurrentUser(data.user);
+                    history.replace(from);
+                } else {
+                    setError(data.message);
+                    setLoading(false);
+                }
+            } catch (error) {
+                console.log(error);
+            }
+
         }
     }
 };

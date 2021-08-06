@@ -1,10 +1,12 @@
 import { faUserLock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { signUp } from "api";
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import '../LogIn/LogIn.css';
 const CreateAccount = () => {
     const history = useHistory();
+
     return (
         <div>
             <h1>Join for incredible</h1>
@@ -20,6 +22,7 @@ const CreateAccount = () => {
         const [email, setEmail] = useState("");
         const [password, setPassword] = useState("");
         const [error, setError] = useState('');
+
         return (
             <form onSubmit={handleLogIn} className="login-form">
                 <FontAwesomeIcon icon={faUserLock} size="3x" color="crimson" />
@@ -64,7 +67,7 @@ const CreateAccount = () => {
             </form>
         );
 
-        function handleLogIn(e) {
+        async function handleLogIn(e) {
             e.preventDefault();
 
             const user = {
@@ -72,26 +75,19 @@ const CreateAccount = () => {
                 email,
                 password,
             };
+
+            try {
+                const { data } = await signUp(user);
+                if (!data.success) {
+                    setError(data.message);
+                } else {
+                    // Account created successfully
+                    history.push("/login");
+                }
+            } catch (error) {
+                console.log(error);
+            }
             
-            fetch(`${process.env.REACT_APP_SERVER_URL}/addUser`, {
-                method: "POST",
-                headers: {
-                    "content-type": "application/json",
-                },
-                body: JSON.stringify(user),
-            })
-                .then((res) => res.json())
-                .then((serverResponse) => {
-                    if (!serverResponse.success) {
-                        setError(serverResponse.message);
-                    } else {
-                        // Account created successfully
-                        history.push('/login');
-                    }
-                });
-            // setUserName('');
-            // setEmail('');
-            // setPassword('');
         }
     }
 };

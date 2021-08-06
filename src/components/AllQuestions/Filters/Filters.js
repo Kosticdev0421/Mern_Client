@@ -1,3 +1,4 @@
+import { getFilteredQuestions } from 'api';
 import React, { useRef, useState } from 'react';
 import SelectTag from '../../Common/SelectTag/SelectTag';
 import './Filters.css';
@@ -22,18 +23,18 @@ const Filters = ({getQuestions}) => {
         </div>
     );
 
-    function handleFilter(){
+    async function handleFilter(){
         const sortBy = sortByRef.current.value;
         const encodedTag = encodeURIComponent(tag);
-        const url = `${process.env.REACT_APP_SERVER_URL}/questions?sortBy=${sortBy}&tag=${encodedTag}`;
-        console.log(url)
-        fetch(url)
-        .then((res) => res.json())
-        .then((data) => {
-                setQuestions(data);
-                // console.log(data)
-            });
+        
+        try {
+            const { data } = await getFilteredQuestions(sortBy, encodedTag);
+            setQuestions(data);
+        } catch (error) {
+            console.log(error);
         }
+        }
+        
     };
 
 export default Filters;

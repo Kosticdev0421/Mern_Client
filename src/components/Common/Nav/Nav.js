@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { userAuthContext } from "../../../App";
 import logo from '../../../images/logo/logo.png';
@@ -8,20 +8,18 @@ import "./Nav.css";
 const Nav = () => {
     const [currentUser, setCurrentUser] = useContext(userAuthContext);
 
-    useEffect(() => {
-        fetch(`${process.env.REACT_APP_SERVER_URL}/getUser`, {
-            headers: {
-                "content-type": "application/json",
-                "x-access-token": localStorage.getItem("token"),
-            },
-        })
-            .then((res) => res.json())
-            .then((result) => {
-                if (result.auth) {
-                    setCurrentUser(result.user);
-                }
-            });
-    }, []);
+    // useEffect(() => {
+    //     const get = async () => {
+    //         try {
+    //             const { data } = await getUser();
+    //             if (data?.auth) setCurrentUser(data.user);
+    //         } catch (error) {
+    //             console.log(error)
+    //         }
+    //     }
+    //     get();
+        
+    // }, []);
 
     return (
         <div className="nav-bar">
@@ -44,10 +42,10 @@ const Nav = () => {
                 <Link to="/tags" className="link-text">
                     <li>Topics</li>
                 </Link>
-                {currentUser.email ? (
+                {currentUser?.email ? (
                     <span>
                         <Link to="/dashboard" className="link-text">
-                            <li>{currentUser.userName.toUpperCase()}</li>
+                            <li>{currentUser?.userName.toUpperCase()}</li>
                         </Link>
                         <LogOut />
                     </span>
