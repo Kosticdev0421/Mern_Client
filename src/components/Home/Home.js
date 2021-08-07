@@ -1,6 +1,6 @@
 import React from 'react';
-import Footer from '../Common/Footer/Footer';
 import Features from './Features/Features';
+import Header from './Header/Header';
 import './Home.css';
 import Search from "./Search/Search";
 import Testimonials from './Testimonials/Testimonials';
@@ -11,10 +11,10 @@ const Home = () => {
     return (
         <div className="home">
             <Search />
+            <Header />
             <TopQuestions />
             <Features />
             <Testimonials />
-            <Footer />
         </div>
     );
 

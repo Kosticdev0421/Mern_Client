@@ -1,3 +1,4 @@
+import { getAnswers, getQuestion, writeAnswer } from 'api';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import loadingImg from "../../../images/Loading-Infinity.gif";
@@ -23,34 +24,32 @@ const QuestionDetail = () => {
 
 
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_SERVER_URL}/questions/${id}`, {
-            headers: {
-                "x-access-token": localStorage.getItem("token"),
-            },
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                setQuestion(data);
-                setThumbsUpCount(data.thumbsUpCount);
-                setThumbsUp(data.thumbsUp);
-            });
-        }, []);
-    useEffect(() => {
-        fetch(`${process.env.REACT_APP_SERVER_URL}/answers?question=${id}`, {
-            headers: {
-                "x-access-token": localStorage.getItem("token")
-            }
-        })
-        .then(res => res.json())
-        .then(data => {
+        getQ();
+        getA();
+    }, [id]);
+    
+    const getQ = async () => {
+        try {
+            const { data } = await getQuestion(id);
+            setQuestion(data);
+            setThumbsUpCount(data.thumbsUpCount);
+            setThumbsUp(data.thumbsUp);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    const getA = async () => {
+        try {
+            const { data } = await getAnswers(id);
             setResponse(data.message);
-            if(data.success){
-                setAnswers(data.answers);
-            }
+            if(data?.success) setAnswers(data?.answers);
             setLoading(false);
-            
-        });
-    }, []);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
 
     if (loading) {
         return (
@@ -115,38 +114,33 @@ const QuestionDetail = () => {
             </form>
         );
 
-            function addAnswer(e) {
-                e.preventDefault();
-                console.log(answerText);
-                const answer = {
-                    questionId: question._id,
-                    answerText,
-                    code,
-                    answeredAt: new Date().getTime(),
-                };
-                fetch(`${process.env.REACT_APP_SERVER_URL}/writeAnswer`, {
-                    method: "POST",
-                    headers: {
-                        "content-type": "application/json",
-                        "x-access-token": localStorage.getItem("token"),
-                    },
-                    body: JSON.stringify(answer),
-                })
-                    .then((res) => res.json())
-                    .then((serverResponse) => {
-                        setResponse(serverResponse.message);
-                        if (serverResponse.success) {
-                            setAnswerText("");
-                            window.location.reload();
-                        }
-                    });
+        async function addAnswer(e) {
+            e.preventDefault();
+            
+            const answer = {
+                questionId: question._id,
+                answerText,
+                code,
+                answeredAt: new Date().getTime(),
+            };
+            try {
+                const { data } = await writeAnswer(answer);
+                setResponse(data.message);
+                if (data.success) {
+                    setAnswerText("");
+                    window.location.reload();
+                }
+            } catch (error) {
+                console.log(error);
             }
+            
+        }
 
-            function handleQuestionInput(e) {
-                const height = Math.floor(e.target.scrollHeight / 10) * 10 - 20; //-20 for padding
-                setAnswerHeight(height + "px");
-                setAnswerText(e.target.value);
-            }
+        function handleQuestionInput(e) {
+            const height = Math.floor(e.target.scrollHeight / 10) * 10 - 20; //-20 for padding
+            setAnswerHeight(height + "px");
+            setAnswerText(e.target.value);
+        }
 
     }
 

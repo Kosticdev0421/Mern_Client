@@ -2,6 +2,7 @@ import AboutUs from 'components/AboutUs/AboutUs';
 import AllQuestions from 'components/AllQuestions/AllQuestions';
 import AskQuestion from 'components/AskQuestion/AskQuestion';
 import Code from 'components/Common/Code/Code';
+import Footer from 'components/Common/Footer/Footer';
 import Nav from 'components/Common/Nav/Nav';
 import Dashboard from 'components/Dashboard/Dashboard';
 import Home from 'components/Home/Home';
@@ -79,6 +80,7 @@ function App() {
                             <NotFound />
                         </Route>
                     </Switch>
+                    <Footer />
                 </Router>
             </div>
         </userAuthContext.Provider>

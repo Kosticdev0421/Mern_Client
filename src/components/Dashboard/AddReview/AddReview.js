@@ -1,3 +1,4 @@
+import { addReview } from "api";
 import React, { useContext, useRef } from "react";
 import { useHistory } from "react-router";
 import { userAuthContext } from "../../../App";
@@ -29,23 +30,20 @@ const AddReview = () => {
             img: currentUser.photoURL,
             addedTime: new Date(),
         };
-        fetch(`${process.env.REACT_APP_SERVER_URL}/addReview`, {
-            method: "POST",
-            headers: {
-                "content-type": "application/json",
-                "x-access-token": localStorage.getItem("token"),
-            },
-            body: JSON.stringify(reviewInfo),
-        })
-            .then((res) => res.json())
-            .then((data) => {
+        const get = async () => {
+            try {
+                const { data } = await addReview(reviewInfo);
                 if (data) {
-                    console.log(data);
                     history.push("/#reviews");
                 } else {
                     alert("Something went wrong, please try again!");
                 }
-            });
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        get();
+        
     }
 };
 

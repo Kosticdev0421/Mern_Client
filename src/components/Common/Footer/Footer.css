@@ -3,7 +3,7 @@
     background-size: cover;
     background-color: #272727;
     color: white;
-    padding-top: 80px;
+    padding: 50px 0;
     margin-top: 50px;
 }
 .footer-area a{
@@ -34,4 +34,7 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+}
+.footer-cols ul{
+    padding: 0;
 }

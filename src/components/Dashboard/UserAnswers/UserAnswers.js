@@ -1,5 +1,6 @@
 import { faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { deleteAnswer } from "api";
 import React, { useState } from "react";
 import Answer from "../../Answer/Answer";
 import EditAnswer from "../EditAnswer/EditAnswer";
@@ -31,33 +32,32 @@ const UserAnswers = ({ userInfo }) => {
         return (
             <div>
                 <button className="btn-brand" onClick={() => setShowEdit(!showEdit)}>Update</button>
-                <button className="btn-brand" onClick={() => deleteAnswer(answer._id)}>Delete</button>
+                <button className="btn-brand" onClick={() => handleDelete(answer._id)}>Delete</button>
                 {showEdit && <EditAnswer answer={answer} />}
             </div>
         );
     }
-    function deleteAnswer(id) {
+    async function handleDelete(id) {
         const confirm = window.confirm(
             "Are you sure to delete? It can't be undone!"
         );
         if (confirm) {
-            fetch(`${process.env.REACT_APP_SERVER_URL}/answer/${id}`, {
-                method: "DELETE",
-                headers: {
-                    "x-access-token": localStorage.getItem("token"),
-                },
-            })
-                .then((res) => res.json())
-                .then((serverResponse) => {
-                    if (serverResponse.success) {
-                        alert(serverResponse.message + " page will reload now");
-                        setTimeout(() => {
-                            window.location.reload();
-                        }, 500);
-                    } else {
-                        alert(serverResponse.message);
-                    }
-                });
+          
+            try {
+                const { data } = await deleteAnswer(id);
+                if (data.success) {
+                    alert(data.message + " page will reload now");
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 500);
+                } else {
+                    alert(data.message);
+                }
+                
+            } catch (error) {
+                console.log(error);
+            }
+
         }
     }
 };
